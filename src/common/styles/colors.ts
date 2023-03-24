@@ -7,6 +7,8 @@ const colors = {
     300: '#d4d4d4',
     400: '#a3a3a3',
   },
+  success: '#22C55E',
+  danger: '#D35F57',
 };
 
 export default colors;
