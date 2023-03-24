@@ -21,9 +21,11 @@ function ToastMessage({type, message, onPress}: ToastMessageProps) {
       <FlexContainer
         direction="row"
         gapSize="small"
-        className="p-4 mx-4 bg-black rounded-2xl">
+        className="items-center p-4 mx-4 bg-black rounded-2xl">
         <SvgIcon name={name} color={color} />
-        <AppText color={colors.white}>{message}</AppText>
+        <AppText typeStyle="B2" color={colors.white}>
+          {message}
+        </AppText>
       </FlexContainer>
     </Pressable>
   );
