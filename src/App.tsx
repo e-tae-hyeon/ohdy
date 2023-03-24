@@ -1,11 +1,12 @@
-import {View, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import RootStack from 'navigations/RootStack';
 import React from 'react';
 
 function App() {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
   );
 }
 
