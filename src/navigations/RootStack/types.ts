@@ -1,3 +1,5 @@
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 export type RootStackParamList = {} & AuthGroupParamList;
 
 export type AuthGroupParamList = {
@@ -8,3 +10,6 @@ export type AuthGroupParamList = {
   Nickname: undefined;
   Keywords: undefined;
 };
+
+export type AuthGroupNavigationProp =
+  NativeStackNavigationProp<AuthGroupParamList>;
