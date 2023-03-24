@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         default: ['Pretendard-Regular'],
       },
+      colors: {
+        black: '#222',
+      },
     },
   },
   plugins: [],
