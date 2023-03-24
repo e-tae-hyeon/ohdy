@@ -6794,6 +6794,13 @@ react-native-confirmation-code-field@^7.3.1:
   resolved "https://registry.yarnpkg.com/react-native-confirmation-code-field/-/react-native-confirmation-code-field-7.3.1.tgz#e705ee5b73d7749cac29da287379fa8690904fe6"
   integrity sha512-5vI6BclB31e4vTYg0HmV/Vy9zI5MQZfHr1EN3kYzvaZq4GMIsyr6lrSmnQW1TtWR7Z8oURrhCpwo+JsWXxCoug==
 
+react-native-date-picker@^4.2.9:
+  version "4.2.9"
+  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-4.2.9.tgz#c916231025dac1fd8f90783d06b092e74ec12948"
+  integrity sha512-msx877/ULxaoceqOV3GKx/A93ninYmOp46w5DOCh3pQGPbgL4ZmbglvXJ3mOp2h/j5scuYf9+NetCRLqj1pODA==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-flipper@^0.164.0:
   version "0.164.0"
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.164.0.tgz#64f6269a86a13a72e30f53ba9f5281d2073a7697"

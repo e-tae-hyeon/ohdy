@@ -34,7 +34,7 @@ function AppText({
 
 export default AppText;
 
-type TypoStyle = 'Hero' | 'H1' | 'H2' | 'H3' | 'B1' | 'B2';
+export type TypoStyle = 'Hero' | 'H1' | 'H2' | 'H3' | 'B1' | 'B2';
 
 const typoStyleMap: Record<TypoStyle, {fontSize: number; fontWeight: any}> = {
   Hero: {fontSize: 40, fontWeight: '700'},
