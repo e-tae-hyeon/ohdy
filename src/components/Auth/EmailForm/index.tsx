@@ -19,7 +19,7 @@ function EmailForm() {
   const {showToast, hideToast} = useToast();
   const {navigate} = useNavigation<AuthGroupNavigationProp>();
 
-  const handleSendEmail = async () => {
+  const handleSendEmail = () => {
     try {
       hideToast();
       sendEmail(email);
@@ -31,22 +31,25 @@ function EmailForm() {
 
   return (
     <KeyboardAvodingContainer>
-      <View className="pb-20">
-        <AppText typeStyle="H3">이메일을 입력해주세요.</AppText>
+      <View className="p-4">
+        <View className="py-20">
+          <AppText typeStyle="H3">이메일을 입력해주세요.</AppText>
+        </View>
+        <FlexContainer gapSize="large">
+          <Input
+            inputMode="email"
+            placeholder="ex) ohdy@ohdy.co.kr"
+            value={email}
+            onChangeText={setEmail}
+            autoFocus
+          />
+          <Btn
+            label="이메일로 인증 코드 요청"
+            onPress={handleSendEmail}
+            disabled={disabled}
+          />
+        </FlexContainer>
       </View>
-      <FlexContainer gapSize="large">
-        <Input
-          inputMode="email"
-          placeholder="ex) ohdy@ohdy.co.kr"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <Btn
-          label="이메일로 인증 코드 요청"
-          onPress={handleSendEmail}
-          disabled={disabled}
-        />
-      </FlexContainer>
     </KeyboardAvodingContainer>
   );
 }
