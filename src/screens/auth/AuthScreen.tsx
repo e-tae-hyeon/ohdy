@@ -1,7 +1,6 @@
-import FlexContainer from 'components/@base/FlexContainer';
-import Layout from 'components/@base/Layout';
 import Logotypo from 'components/@base/Logotypo';
 import LoginBtns from 'components/Auth/LoginBtns';
+import Layout from 'components/Global/Layout';
 import React from 'react';
 import {View} from 'react-native';
 

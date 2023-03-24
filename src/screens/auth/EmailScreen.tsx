@@ -1,11 +1,16 @@
-import AppText from 'components/@base/AppText';
-import Layout from 'components/@base/Layout';
+import EmailForm from 'components/Auth/EmailForm';
+import ActionsHeader from 'components/Global/ActionsHeader';
+import Layout from 'components/Global/Layout';
 import React from 'react';
+import {View} from 'react-native';
 
 function EmailScreen() {
   return (
     <Layout>
-      <AppText>email</AppText>
+      <ActionsHeader />
+      <View className="justify-center flex-1 p-8 mt-[-40px]">
+        <EmailForm />
+      </View>
     </Layout>
   );
 }
