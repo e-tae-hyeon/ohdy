@@ -5,12 +5,14 @@ import {Text} from 'react-native';
 type AppTextProps = {
   typeStyle?: TypoStyle;
   color?: string;
+  align?: 'left' | 'center' | 'right';
   children: React.ReactNode;
 };
 
 function AppText({
   typeStyle = 'B1',
   color = colors.black,
+  align = 'left',
   children,
 }: AppTextProps) {
   const {fontSize, fontWeight} = typoStyleMap[typeStyle];
@@ -18,7 +20,13 @@ function AppText({
   return (
     <Text
       className="font-default"
-      style={{fontSize, fontWeight, textAlignVertical: 'center', color}}>
+      style={{
+        fontSize,
+        fontWeight,
+        textAlignVertical: 'center',
+        textAlign: align,
+        color,
+      }}>
       {children}
     </Text>
   );
