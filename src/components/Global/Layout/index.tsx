@@ -1,12 +1,14 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 function Layout({children}: LayoutProps) {
-  return <View className="flex flex-1 bg-white">{children}</View>;
+  return (
+    <SafeAreaView className="flex flex-1 bg-white">{children}</SafeAreaView>
+  );
 }
 
 export default Layout;
