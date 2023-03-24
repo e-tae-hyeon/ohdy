@@ -1,18 +1,19 @@
 import React from 'react';
-import {KeyboardAvoidingView, Platform} from 'react-native';
+import {KeyboardAvoidingView, Platform, View} from 'react-native';
 
 type KeyboardAvoidingContainerProps = {
   children: React.ReactNode;
 };
 
-function KeyboardAvodingContainer({children}: KeyboardAvoidingContainerProps) {
+function KeyboardAvoidingContainer({children}: KeyboardAvoidingContainerProps) {
   return (
     <KeyboardAvoidingView
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 120 : undefined}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 120 : 0}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      className="flex-1">
       {children}
     </KeyboardAvoidingView>
   );
 }
 
-export default KeyboardAvodingContainer;
+export default KeyboardAvoidingContainer;
