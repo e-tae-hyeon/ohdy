@@ -1,8 +1,8 @@
 import FlexContainer from 'components/@base/FlexContainer';
+import LoginBtn, {LoginBtnIcon} from 'components/Auth/module/LoginBtn';
 import useLogin from 'hooks/useLogin';
 import React from 'react';
 import {View} from 'react-native';
-import LoginBtn, {LoginBtnIcon} from '../LoginBtn';
 
 function LoginBtns() {
   const {startEmailLogin} = useLogin();

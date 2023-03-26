@@ -1,6 +1,6 @@
 import Logotypo from 'components/@base/Logotypo';
-import LoginBtns from 'components/Auth/LoginBtns';
-import Layout from 'components/Global/Layout';
+import LoginBtns from 'components/Auth/template/LoginBtns';
+import Layout from 'components/Global/template/Layout';
 import React from 'react';
 import {View} from 'react-native';
 

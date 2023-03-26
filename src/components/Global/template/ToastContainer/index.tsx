@@ -1,6 +1,6 @@
+import ToastMessage from 'components/Global/module/ToastMessage';
 import React from 'react';
 import Toast, {ToastConfig} from 'react-native-toast-message';
-import ToastMessage from '../ToastMessage';
 
 const toastConfig: ToastConfig = {
   success: ({text1, onPress}) => (

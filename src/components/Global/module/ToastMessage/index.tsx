@@ -23,7 +23,7 @@ function ToastMessage({type, message, onPress}: ToastMessageProps) {
         gapSize="small"
         className="items-center p-4 mx-4 bg-black rounded-2xl">
         <SvgIcon name={name} color={color} />
-        <AppText typeStyle="B2" color={colors.white}>
+        <AppText typoStyle="B2" color={colors.white}>
           {message}
         </AppText>
       </FlexContainer>

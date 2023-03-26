@@ -1,6 +1,6 @@
-import EmailForm from 'components/Auth/EmailForm';
-import ActionsHeader from 'components/Global/ActionsHeader';
-import Layout from 'components/Global/Layout';
+import EmailForm from 'components/Auth/template/EmailForm';
+import ActionsHeader from 'components/Global/module/ActionsHeader';
+import Layout from 'components/Global/template/Layout';
 import React from 'react';
 
 function EmailScreen() {

@@ -1,9 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import {verifyCode} from 'apis/auth';
-import AppText from 'components/@base/AppText';
 import Btn from 'components/@base/Btn';
 import FlexContainer from 'components/@base/FlexContainer';
 import KeyboardAvodingContainer from 'components/@base/KeyboardAvoidingContainer';
+import GuideText from 'components/Auth/module/GudieText';
+import VerifyCodeInput from 'components/Auth/module/VerifyCodeInput';
 import useDisabled from 'hooks/useDisabled';
 import useToast from 'hooks/useToast';
 import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
@@ -11,7 +12,6 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import useAuthStore from 'stores/useAuthStore';
 import {getErrorMessage} from 'utils/error';
-import VerifyCodeInput from '../VerifyCodeInput';
 
 function VerifyCodeForm() {
   const {email} = useAuthStore();
@@ -20,7 +20,7 @@ function VerifyCodeForm() {
   const {showToast} = useToast();
   const {navigate} = useNavigation<AuthGroupNavigationProp>();
 
-  const handleVerifyCode = async () => {
+  const handlePress = async () => {
     try {
       const authResult = await verifyCode({email, code: parseInt(code)});
 
@@ -36,18 +36,11 @@ function VerifyCodeForm() {
 
   return (
     <KeyboardAvodingContainer>
-      <View className="p-4">
-        <View className="py-20">
-          <AppText typeStyle="H3">{email}(으)로</AppText>
-          <AppText typeStyle="H3">인증코드가 발송되었습니다.</AppText>
-        </View>
-        <FlexContainer gapSize="large">
+      <View className="flex-1 p-4">
+        <GuideText title={[`${email}(으)로`, '인증코드가 발송되었습니다.']} />
+        <FlexContainer gapSize="large" className="flex-1">
           <VerifyCodeInput value={code} onChangeText={setCode} />
-          <Btn
-            label="인증하기"
-            onPress={handleVerifyCode}
-            disabled={disabled}
-          />
+          <Btn label="인증하기" onPress={handlePress} disabled={disabled} />
         </FlexContainer>
       </View>
     </KeyboardAvodingContainer>

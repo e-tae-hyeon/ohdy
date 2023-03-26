@@ -1,10 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import {sendEmail} from 'apis/auth';
-import AppText from 'components/@base/AppText';
 import Btn from 'components/@base/Btn';
 import FlexContainer from 'components/@base/FlexContainer';
 import Input from 'components/@base/Input';
 import KeyboardAvodingContainer from 'components/@base/KeyboardAvoidingContainer';
+import GuideText from 'components/Auth/module/GudieText';
 import useDisabled from 'hooks/useDisabled';
 import useToast from 'hooks/useToast';
 import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
@@ -20,7 +20,7 @@ function EmailForm() {
   const {showToast, hideToast} = useToast();
   const {navigate} = useNavigation<AuthGroupNavigationProp>();
 
-  const handleSendEmail = () => {
+  const handlePress = () => {
     try {
       hideToast();
       sendEmail(email);
@@ -32,11 +32,9 @@ function EmailForm() {
 
   return (
     <KeyboardAvodingContainer>
-      <View className="p-4">
-        <View className="py-20">
-          <AppText typeStyle="H3">이메일을 입력해주세요.</AppText>
-        </View>
-        <FlexContainer gapSize="large">
+      <View className="flex-1 p-4">
+        <GuideText title={'이메일을 입력해주세요.'} />
+        <FlexContainer gapSize="large" className="flex-1">
           <Input
             inputMode="email"
             placeholder="ex) ohdy@ohdy.co.kr"
@@ -46,7 +44,7 @@ function EmailForm() {
           />
           <Btn
             label="이메일로 인증 코드 요청"
-            onPress={handleSendEmail}
+            onPress={handlePress}
             disabled={disabled}
           />
         </FlexContainer>

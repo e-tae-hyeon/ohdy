@@ -1,6 +1,6 @@
-import UserInfoForm from 'components/Auth/UserInfoForm';
-import ActionsHeader from 'components/Global/ActionsHeader';
-import Layout from 'components/Global/Layout';
+import UserInfoForm from 'components/Auth/template/UserInfoForm';
+import ActionsHeader from 'components/Global/module/ActionsHeader';
+import Layout from 'components/Global/template/Layout';
 import React from 'react';
 
 function UserInfoScreen() {

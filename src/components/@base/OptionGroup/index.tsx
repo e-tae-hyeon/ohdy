@@ -39,7 +39,7 @@ function OptionGroup<T extends {label: string; value: any}>({
           className="flex-1"
           key={option.value}>
           <AppText
-            typeStyle={optionTypoStyle}
+            typoStyle={optionTypoStyle}
             color={option === selected ? selectedTypoColor : undefined}
             align="center">
             {option.label}

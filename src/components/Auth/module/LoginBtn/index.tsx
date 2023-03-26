@@ -27,7 +27,7 @@ function LoginBtn({icon, label, colors, onPress}: LoginBtnProps) {
         gapSize="small"
         className="items-center justify-center p-2">
         <SvgIcon name={icon} color={colors.accentColor} />
-        <AppText typeStyle="B1" color={colors.accentColor}>
+        <AppText typoStyle="B1" color={colors.accentColor}>
           {label}
         </AppText>
       </FlexContainer>
