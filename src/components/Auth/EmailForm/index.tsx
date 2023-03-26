@@ -11,6 +11,7 @@ import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
 import {View} from 'react-native';
 import useAuthStore from 'stores/useAuthStore';
+import {getErrorMessage} from 'utils/error';
 import validator from 'validator';
 
 function EmailForm() {
@@ -25,7 +26,7 @@ function EmailForm() {
       sendEmail(email);
       navigate('VerifyCode');
     } catch (err) {
-      showToast({type: 'error', message: '잠시후 다시 시도해주세요.'});
+      showToast({type: 'error', message: getErrorMessage(err)});
     }
   };
 

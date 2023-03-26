@@ -10,6 +10,7 @@ import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import useAuthStore from 'stores/useAuthStore';
+import {getErrorMessage} from 'utils/error';
 import VerifyCodeInput from '../VerifyCodeInput';
 
 function VerifyCodeForm() {
@@ -29,10 +30,7 @@ function VerifyCodeForm() {
         navigate('UserInfo');
       }
     } catch (err) {
-      showToast({
-        type: 'error',
-        message: '잘못된 인증코드입니다.\n올바른 인증코드를 입력해 주세요.',
-      });
+      showToast({type: 'error', message: getErrorMessage(err)});
     }
   };
 
