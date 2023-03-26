@@ -33,7 +33,8 @@ function VerifyCodeInput({value, onChangeText}: VerifyCodeInputProps) {
       renderCell={({index, symbol, isFocused}) => (
         <View
           className="items-center justify-center h-10 p-2 border w-11 border-neutral-400 rounded-2xl"
-          onLayout={getCellOnLayoutHandler(index)}>
+          onLayout={getCellOnLayoutHandler(index)}
+          key={index}>
           <AppText align="center">
             {symbol || (isFocused ? <Cursor /> : null)}{' '}
           </AppText>
