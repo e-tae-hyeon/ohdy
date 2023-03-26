@@ -1,7 +1,8 @@
+import Layout from 'components/Global/template/Layout';
 import React from 'react';
 
 function KeywordsScreen() {
-  return <div>KeywordsScreen</div>;
+  return <Layout></Layout>;
 }
 
 export default KeywordsScreen;

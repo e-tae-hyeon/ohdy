@@ -3,10 +3,12 @@ export type VerifyCodeParams = {
   code: number;
 };
 
-export type VerifyCodeResult = {
+export type VerifyCodeResult = LoginUserData | null;
+
+export type LoginUserData = {
   user: User;
   tokens: Tokens;
-} | null;
+};
 
 export type RegisterParams = LocalRegisterParams | SocialRegisterParams;
 

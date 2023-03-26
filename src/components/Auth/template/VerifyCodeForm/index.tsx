@@ -5,6 +5,7 @@ import KeyboardAvodingContainer from 'components/@base/KeyboardAvoidingContainer
 import GuideText from 'components/Auth/module/GudieText';
 import VerifyCodeInput from 'components/Auth/module/VerifyCodeInput';
 import useDisabled from 'hooks/useDisabled';
+import useLogin from 'hooks/useLogin';
 import useToast from 'hooks/useToast';
 import React, {useState} from 'react';
 import {View} from 'react-native';
@@ -16,13 +17,15 @@ function VerifyCodeForm() {
   const [code, setCode] = useState('');
   const disabled = useDisabled([code.length === 4]);
   const {showToast} = useToast();
+  const login = useLogin();
 
   const handlePress = async () => {
     try {
-      const authResult = await verifyCode({email, code: parseInt(code)});
+      const userData = await verifyCode({email, code: parseInt(code)});
 
-      if (authResult) {
+      if (userData) {
         // handle login
+        await login(userData);
       } else {
         // handle register
         openPolicySheet();

@@ -1,12 +1,11 @@
-import {useNavigation} from '@react-navigation/native';
 import {register} from 'apis/auth';
 import {PRIVACY_POLICY_URI, TERM_OF_USE_URI} from 'common/constants/string';
 import AppText from 'components/@base/AppText';
 import BottomSheet from 'components/@base/BottomSheet';
 import Btn from 'components/@base/Btn';
 import FlexContainer from 'components/@base/FlexContainer';
+import useLogin from 'hooks/useLogin';
 import useToast from 'hooks/useToast';
-import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
 import {Linking} from 'react-native';
 import {Pressable, View} from 'react-native';
@@ -17,7 +16,7 @@ function PolicyBottomSheet() {
   const {registerType, email, isVisiblePolicySheet, closePolicySheet} =
     useAuthStore();
   const {showToast} = useToast();
-  const {navigate} = useNavigation<AuthGroupNavigationProp>();
+  const login = useLogin();
 
   const handleLink = (uri: string) => {
     Linking.openURL(uri);
@@ -27,7 +26,9 @@ function PolicyBottomSheet() {
     try {
       switch (registerType) {
         case 'local': {
-          await register({type: registerType, email});
+          const userData = await register({type: registerType, email});
+
+          await login(userData);
           break;
         }
         case 'social': {
@@ -36,7 +37,6 @@ function PolicyBottomSheet() {
           break;
       }
       closePolicySheet();
-      navigate('UserInfo');
     } catch (err) {
       showToast({type: 'error', message: getErrorMessage(err)});
     }

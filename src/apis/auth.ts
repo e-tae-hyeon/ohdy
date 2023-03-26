@@ -1,5 +1,10 @@
 import client from './@client';
-import {RegisterParams, VerifyCodeParams, VerifyCodeResult} from './types';
+import {
+  LoginUserData,
+  RegisterParams,
+  VerifyCodeParams,
+  VerifyCodeResult,
+} from './types';
 
 export async function sendEmail(email: string) {
   const res = await client.post('/auth/email', {email});
@@ -14,7 +19,7 @@ export async function verifyCode(params: VerifyCodeParams) {
 }
 
 export async function register({type, ...body}: RegisterParams) {
-  const res = await client.post(`/auth/register/${type}`, body);
+  const res = await client.post<LoginUserData>(`/auth/register/${type}`, body);
 
   return res.data;
 }
