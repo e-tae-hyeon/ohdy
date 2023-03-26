@@ -3,19 +3,19 @@ import React from 'react';
 import {Text} from 'react-native';
 
 type AppTextProps = {
-  typeStyle?: TypoStyle;
+  typoStyle?: TypoStyle;
   color?: string;
   align?: 'left' | 'center' | 'right';
   children: React.ReactNode;
 };
 
 function AppText({
-  typeStyle = 'B1',
+  typoStyle = 'B1',
   color = colors.black,
   align = 'left',
   children,
 }: AppTextProps) {
-  const {fontSize, fontWeight} = typoStyleMap[typeStyle];
+  const {fontSize, fontWeight} = typoStyleMap[typoStyle];
 
   return (
     <Text
