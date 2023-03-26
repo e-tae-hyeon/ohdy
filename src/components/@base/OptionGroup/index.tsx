@@ -36,7 +36,8 @@ function OptionGroup<T extends {label: string; value: any}>({
             optionCellStyle,
             option === selected ? selectedCellStyle : undefined,
           ]}
-          className="flex-1">
+          className="flex-1"
+          key={option.value}>
           <AppText
             typeStyle={optionTypoStyle}
             color={option === selected ? selectedTypoColor : undefined}
