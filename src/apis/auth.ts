@@ -23,3 +23,9 @@ export async function register({type, ...body}: RegisterParams) {
 
   return res.data;
 }
+
+export async function checkAbleNickname(nickname: string) {
+  const res = await client.post('/auth/check-nickname', {nickname});
+
+  return res.data;
+}

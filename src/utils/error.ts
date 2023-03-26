@@ -6,6 +6,7 @@ const errorMessageMap: Record<number, string> = {
   2: '인증코드가 틀렸습니다.\n올바른 인증코드를 입력해주세요.',
   3: '인증코드가 만료되었습니다.\n다시 시도해주세요.',
   4: '잘못된 요청입니다.',
+  7: '이미 존재하는 닉네임입니다.\n다른 닉네임을 사용해주세요.',
 };
 
 export function getErrorMessage(err: any) {
