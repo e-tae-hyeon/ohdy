@@ -1,4 +1,4 @@
-import {ToastType} from 'components/Global/ToastMessage';
+import {ToastType} from 'components/Global/module/ToastMessage';
 import Toast from 'react-native-toast-message';
 
 function useToast() {
