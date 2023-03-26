@@ -1,18 +1,27 @@
+import {useNavigation} from '@react-navigation/native';
+import {SocialProvider} from 'apis/types';
 import FlexContainer from 'components/@base/FlexContainer';
 import LoginBtn, {LoginBtnIcon} from 'components/Auth/module/LoginBtn';
-import useLogin from 'hooks/useLogin';
+import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
 import {View} from 'react-native';
+import useAuthStore from 'stores/useAuthStore';
 
 function LoginBtns() {
-  const {startEmailLogin} = useLogin();
+  const {navigate} = useNavigation<AuthGroupNavigationProp>();
+  const {setRegisterType} = useAuthStore();
+
+  const handlePressEmail = () => {
+    setRegisterType('local');
+    navigate('Email');
+  };
 
   return (
     <View className="p-12">
       <FlexContainer>
         <LoginBtn {...loginsMap.Apple} />
         <LoginBtn {...loginsMap.Kakao} />
-        <LoginBtn {...loginsMap.Email} onPress={startEmailLogin} />
+        <LoginBtn {...loginsMap.Email} onPress={handlePressEmail} />
       </FlexContainer>
     </View>
   );
@@ -20,7 +29,7 @@ function LoginBtns() {
 
 export default LoginBtns;
 
-type LoginProvider = 'Apple' | 'Kakao' | 'Email';
+type LoginProvider = SocialProvider | 'Email';
 
 const loginsMap: Record<
   LoginProvider,

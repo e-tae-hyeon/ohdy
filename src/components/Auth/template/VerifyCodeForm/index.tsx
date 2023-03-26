@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import {verifyCode} from 'apis/auth';
 import Btn from 'components/@base/Btn';
 import FlexContainer from 'components/@base/FlexContainer';
@@ -7,18 +6,16 @@ import GuideText from 'components/Auth/module/GudieText';
 import VerifyCodeInput from 'components/Auth/module/VerifyCodeInput';
 import useDisabled from 'hooks/useDisabled';
 import useToast from 'hooks/useToast';
-import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import useAuthStore from 'stores/useAuthStore';
 import {getErrorMessage} from 'utils/error';
 
 function VerifyCodeForm() {
-  const {email} = useAuthStore();
+  const {email, openPolicySheet} = useAuthStore();
   const [code, setCode] = useState('');
   const disabled = useDisabled([code.length === 4]);
   const {showToast} = useToast();
-  const {navigate} = useNavigation<AuthGroupNavigationProp>();
 
   const handlePress = async () => {
     try {
@@ -27,7 +24,8 @@ function VerifyCodeForm() {
       if (authResult) {
         // handle login
       } else {
-        navigate('UserInfo');
+        // handle register
+        openPolicySheet();
       }
     } catch (err) {
       showToast({type: 'error', message: getErrorMessage(err)});
