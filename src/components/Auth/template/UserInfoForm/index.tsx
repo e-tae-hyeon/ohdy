@@ -6,15 +6,15 @@ import BrithDatePicker from 'components/Auth/module/BrithDatePicker';
 import GenderSelector from 'components/Auth/module/GenderSelector';
 import GuideText from 'components/Auth/module/GudieText';
 import useDisabled from 'hooks/useDisabled';
-import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
+import {CreateProfileGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
 import {View} from 'react-native';
-import useAuthStore from 'stores/useAuthStore';
+import useCreateProfileStore from 'stores/useCreateProfileStore';
 
 function UserInfoForm() {
-  const {brithDate, gender, setBrithDate, setGender} = useAuthStore();
+  const {brithDate, gender, setBrithDate, setGender} = useCreateProfileStore();
   const disabled = useDisabled([!!brithDate, !!gender]);
-  const {navigate} = useNavigation<AuthGroupNavigationProp>();
+  const {navigate} = useNavigation<CreateProfileGroupNavigationProp>();
 
   const handlePress = () => {
     navigate('Nickname');
