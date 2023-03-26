@@ -6,7 +6,7 @@ import {View} from 'react-native';
 
 function AuthScreen() {
   return (
-    <Layout>
+    <Layout headerShown={false}>
       <View className="items-center justify-center flex-1">
         <Logotypo size="large" />
       </View>
