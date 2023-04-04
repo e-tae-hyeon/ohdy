@@ -1,8 +1,8 @@
 import AppText from 'components/@base/AppText';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import SvgIcon from 'components/@base/SvgIcon';
 import React from 'react';
-import {Pressable, View} from 'react-native';
+import {Pressable} from 'react-native';
 
 export type LoginBtnIcon = 'apple' | 'kakao' | 'mail';
 
@@ -22,7 +22,7 @@ function LoginBtn({icon, label, colors, onPress}: LoginBtnProps) {
       onPress={onPress}
       className="rounded-2xl"
       style={{backgroundColor: colors.bgColor}}>
-      <FlexContainer
+      <FlexView
         direction="row"
         gapSize="small"
         className="items-center justify-center p-2">
@@ -30,7 +30,7 @@ function LoginBtn({icon, label, colors, onPress}: LoginBtnProps) {
         <AppText typoStyle="B1" color={colors.accentColor}>
           {label}
         </AppText>
-      </FlexContainer>
+      </FlexView>
     </Pressable>
   );
 }

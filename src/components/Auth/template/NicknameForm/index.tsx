@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {checkAbleNickname} from 'apis/auth';
 import Btn from 'components/@base/Btn';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import Input from 'components/@base/Input';
 import KeyboardAvoidingContainer from 'components/@base/KeyboardAvoidingContainer';
 import GuideText from 'components/Auth/module/GudieText';
@@ -40,7 +40,7 @@ function NicknameForm() {
           title={'이름'}
           description="다른 회원들에게 보여질 이름이에요."
         />
-        <FlexContainer gapSize="large" className="flex-1">
+        <FlexView gapSize="large" className="flex-1">
           <Input
             placeholder="한글 또는 영어로 구성된 10글자 이내"
             value={nickname}
@@ -49,7 +49,7 @@ function NicknameForm() {
             maxLength={10}
           />
           <Btn label="계속하기" onPress={handlePress} disabled={disabled} />
-        </FlexContainer>
+        </FlexView>
       </View>
     </KeyboardAvoidingContainer>
   );

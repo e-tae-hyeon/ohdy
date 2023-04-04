@@ -1,6 +1,8 @@
 import client from './@client';
 import {
+  CreateProfileParams,
   LoginUserData,
+  Profile,
   RegisterParams,
   VerifyCodeParams,
   VerifyCodeResult,
@@ -26,6 +28,12 @@ export async function register({type, ...body}: RegisterParams) {
 
 export async function checkAbleNickname(nickname: string) {
   const res = await client.post('/auth/check-nickname', {nickname});
+
+  return res.data;
+}
+
+export async function createProfile(params: CreateProfileParams) {
+  const res = await client.post<Profile>('/auth/profile', params);
 
   return res.data;
 }

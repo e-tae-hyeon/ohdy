@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {SocialProvider} from 'apis/types';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import LoginBtn, {LoginBtnIcon} from 'components/Auth/module/LoginBtn';
 import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
@@ -18,11 +18,11 @@ function LoginBtns() {
 
   return (
     <View className="p-12">
-      <FlexContainer>
+      <FlexView>
         <LoginBtn {...loginsMap.Apple} />
         <LoginBtn {...loginsMap.Kakao} />
         <LoginBtn {...loginsMap.Email} onPress={handlePressEmail} />
-      </FlexContainer>
+      </FlexView>
     </View>
   );
 }

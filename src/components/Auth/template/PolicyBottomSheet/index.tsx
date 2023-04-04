@@ -3,7 +3,7 @@ import {PRIVACY_POLICY_URI, TERM_OF_USE_URI} from 'common/constants/string';
 import AppText from 'components/@base/AppText';
 import BottomSheet from 'components/@base/BottomSheet';
 import Btn from 'components/@base/Btn';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import useLogin from 'hooks/useLogin';
 import useToast from 'hooks/useToast';
 import React from 'react';
@@ -44,8 +44,8 @@ function PolicyBottomSheet() {
 
   return (
     <BottomSheet isVisible={isVisiblePolicySheet}>
-      <FlexContainer gapSize="large">
-        <FlexContainer>
+      <FlexView gapSize="large">
+        <FlexView>
           <AppText typoStyle="H3" align="center">
             다음을 읽고 동의해주세요.
           </AppText>
@@ -53,18 +53,18 @@ function PolicyBottomSheet() {
             <Pressable
               onPress={() => handleLink(PRIVACY_POLICY_URI)}
               className="border-b">
-              <AppText typoStyle="Link">개인정보 처리방침</AppText>
+              <AppText typoStyle="Action">개인정보 처리방침</AppText>
             </Pressable>
             <AppText> 및 </AppText>
             <Pressable
               onPress={() => handleLink(TERM_OF_USE_URI)}
               className="border-b">
-              <AppText typoStyle="Link">서비스 이용약관</AppText>
+              <AppText typoStyle="Action">서비스 이용약관</AppText>
             </Pressable>
           </View>
-        </FlexContainer>
+        </FlexView>
         <Btn label="동의하고 회원가입" onPress={handlePress} />
-      </FlexContainer>
+      </FlexView>
     </BottomSheet>
   );
 }

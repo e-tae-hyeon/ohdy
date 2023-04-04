@@ -35,3 +35,17 @@ export type Tokens = {
 };
 
 export type Gender = 'female' | 'male';
+
+export type CreateProfileParams = {
+  nickname: string;
+  gender: Gender;
+  brithDate: string;
+  keywords: string[];
+};
+
+export type Profile = {
+  userId: number;
+  nickname: string;
+  gender: Gender;
+  brithDate: string;
+};

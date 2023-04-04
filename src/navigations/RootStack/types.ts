@@ -1,6 +1,8 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-export type RootStackParamList = {} & AuthGroupParamList &
+export type RootStackParamList = {
+  MainTab: undefined;
+} & AuthGroupParamList &
   CreateProfileGroupParamList;
 
 export type AuthGroupParamList = {

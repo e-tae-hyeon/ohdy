@@ -9,6 +9,7 @@ import UserInfoScreen from 'screens/create-profile/UserInfoScreen';
 import useUserStore from 'stores/useUserStore';
 import {RootStackParamList} from './types';
 import useMyProfile from 'hooks/useMyProfile';
+import MainTab from 'navigations/MainTab';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -32,6 +33,9 @@ function RootStack() {
           <Stack.Screen name="Keywords" component={KeywordsScreen} />
         </Stack.Group>
       )}
+      <Stack.Group>
+        <Stack.Screen name="MainTab" component={MainTab} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 }

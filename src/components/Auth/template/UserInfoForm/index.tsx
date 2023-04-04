@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import Btn from 'components/@base/Btn';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import KeyboardAvoidingContainer from 'components/@base/KeyboardAvoidingContainer';
 import BrithDatePicker from 'components/Auth/module/BrithDatePicker';
 import GenderSelector from 'components/Auth/module/GenderSelector';
@@ -27,13 +27,13 @@ function UserInfoForm() {
           title={'생년월일 및 성별'}
           description={'회원님의 취향 맞춤 장소를 찾는 데 도움이 되어요.'}
         />
-        <FlexContainer gapSize="large" className="flex-1">
-          <FlexContainer>
+        <FlexView gapSize="large" className="flex-1">
+          <FlexView>
             <BrithDatePicker date={brithDate} setDate={setBrithDate} />
             <GenderSelector selected={gender} onSelect={setGender} />
-          </FlexContainer>
+          </FlexView>
           <Btn label="계속하기" onPress={handlePress} disabled={disabled} />
-        </FlexContainer>
+        </FlexView>
       </View>
     </KeyboardAvoidingContainer>
   );

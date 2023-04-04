@@ -1,6 +1,6 @@
 import {verifyCode} from 'apis/auth';
 import Btn from 'components/@base/Btn';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import KeyboardAvodingContainer from 'components/@base/KeyboardAvoidingContainer';
 import GuideText from 'components/Auth/module/GudieText';
 import VerifyCodeInput from 'components/Auth/module/VerifyCodeInput';
@@ -39,10 +39,10 @@ function VerifyCodeForm() {
     <KeyboardAvodingContainer>
       <View className="flex-1 p-4">
         <GuideText title={[`${email}(으)로`, '인증코드가 발송되었습니다.']} />
-        <FlexContainer gapSize="large" className="flex-1">
+        <FlexView gapSize="large" className="flex-1">
           <VerifyCodeInput value={code} onChangeText={setCode} />
           <Btn label="인증하기" onPress={handlePress} disabled={disabled} />
-        </FlexContainer>
+        </FlexView>
       </View>
     </KeyboardAvodingContainer>
   );

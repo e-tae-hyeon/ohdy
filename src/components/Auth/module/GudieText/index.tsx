@@ -1,20 +1,21 @@
 import colors from 'common/styles/colors';
 import AppText from 'components/@base/AppText';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import React from 'react';
 import {View} from 'react-native';
 
 type GuideTextProps = {
   title: string | string[];
   description?: string | string[];
+  padding?: 'y' | 'b';
 };
 
-function GuideText({title, description}: GuideTextProps) {
+function GuideText({title, description, padding = 'y'}: GuideTextProps) {
   const isArrTitle = Array.isArray(title);
   const isArrDescription = Array.isArray(description);
 
   return (
-    <FlexContainer gapSize="small" className="py-14">
+    <FlexView gapSize="small" className={padding === 'y' ? 'py-14' : 'pb-14'}>
       <View>
         {isArrTitle ? (
           title.map(txt => (
@@ -40,7 +41,7 @@ function GuideText({title, description}: GuideTextProps) {
             {description}
           </AppText>
         ))}
-    </FlexContainer>
+    </FlexView>
   );
 }
 

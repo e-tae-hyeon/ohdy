@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {sendEmail} from 'apis/auth';
 import Btn from 'components/@base/Btn';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import Input from 'components/@base/Input';
 import KeyboardAvodingContainer from 'components/@base/KeyboardAvoidingContainer';
 import GuideText from 'components/Auth/module/GudieText';
@@ -34,7 +34,7 @@ function EmailForm() {
     <KeyboardAvodingContainer>
       <View className="flex-1 p-4">
         <GuideText title={'이메일을 입력해주세요.'} />
-        <FlexContainer gapSize="large" className="flex-1">
+        <FlexView gapSize="large" className="flex-1">
           <Input
             inputMode="email"
             placeholder="ex) ohdy@ohdy.co.kr"
@@ -47,7 +47,7 @@ function EmailForm() {
             onPress={handlePress}
             disabled={disabled}
           />
-        </FlexContainer>
+        </FlexView>
       </View>
     </KeyboardAvodingContainer>
   );

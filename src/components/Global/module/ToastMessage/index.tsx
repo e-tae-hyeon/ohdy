@@ -1,6 +1,6 @@
 import colors from 'common/styles/colors';
 import AppText from 'components/@base/AppText';
-import FlexContainer from 'components/@base/FlexContainer';
+import FlexView from 'components/@base/FlexView';
 import SvgIcon from 'components/@base/SvgIcon';
 import React from 'react';
 import {Pressable, View} from 'react-native';
@@ -18,7 +18,7 @@ function ToastMessage({type, message, onPress}: ToastMessageProps) {
 
   return (
     <Pressable onPress={onPress} className="w-full">
-      <FlexContainer
+      <FlexView
         direction="row"
         gapSize="small"
         className="items-center p-4 mx-4 bg-black rounded-2xl">
@@ -26,7 +26,7 @@ function ToastMessage({type, message, onPress}: ToastMessageProps) {
         <AppText typoStyle="B2" color={colors.white}>
           {message}
         </AppText>
-      </FlexContainer>
+      </FlexView>
     </Pressable>
   );
 }
