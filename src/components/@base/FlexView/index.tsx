@@ -1,19 +1,19 @@
 import React from 'react';
 import {View} from 'react-native';
 
-type FlexContainerProps = {
+type FlexViewProps = {
   gapSize?: 'small' | 'medium' | 'large';
   direction?: 'row' | 'column';
-  children: React.ReactNode;
   className?: string;
+  children: React.ReactNode;
 };
 
-function FlexContainer({
+function FlexView({
   gapSize = 'medium',
   direction = 'column',
-  children,
   className,
-}: FlexContainerProps) {
+  children,
+}: FlexViewProps) {
   return (
     <View
       className={className}
@@ -23,7 +23,7 @@ function FlexContainer({
   );
 }
 
-export default FlexContainer;
+export default FlexView;
 
 const gapSizeMap = {
   small: 8,
