@@ -19,7 +19,7 @@ function KeywordsForm() {
   const {brithDate, gender, nickname, keywords, addKeyword, removeKeyword} =
     useCreateProfileStore();
   const [checkedLabels, setCheckedLabels] = useState<string[]>([]);
-  const disabled = useDisabled([checkedLabels.length >= 3]);
+  const disabled = useDisabled([checkedLabels.length < 3]);
 
   const addCheckedLabel = (label: string) => {
     setCheckedLabels(prev => [...prev, label]);
