@@ -8,9 +8,13 @@ function Input({...rest}: InputProps) {
   return (
     <TextInput
       {...rest}
-      className="items-center justify-center px-4 py-2 border rounded-2xl border-neutral-400 font-default"
+      className="items-center justify-center px-4 py-2 border rounded-2xl border-neutral-400"
       placeholderTextColor={colors.gray[300]}
-      style={{fontSize: 16, textAlignVertical: 'center'}}
+      style={{
+        fontSize: 16,
+        textAlignVertical: 'center',
+        fontFamily: 'Pretendard-medium',
+      }}
     />
   );
 }
