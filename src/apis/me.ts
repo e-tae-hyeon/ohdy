@@ -6,3 +6,9 @@ export async function checkMe() {
 
   return res.data;
 }
+
+export async function getMyProfile() {
+  const res = await client.get('/me/profile');
+
+  return res.data;
+}

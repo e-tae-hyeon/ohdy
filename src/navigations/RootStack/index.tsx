@@ -8,11 +8,13 @@ import NicknameScreen from 'screens/create-profile/NicknameScreen';
 import UserInfoScreen from 'screens/create-profile/UserInfoScreen';
 import useUserStore from 'stores/useUserStore';
 import {RootStackParamList} from './types';
+import useMyProfile from 'hooks/useMyProfile';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootStack() {
   const {user} = useUserStore();
+  const profile = useMyProfile();
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
@@ -23,11 +25,13 @@ function RootStack() {
           <Stack.Screen name="VerifyCode" component={VerifyCodeScreen} />
         </Stack.Group>
       )}
-      <Stack.Group>
-        <Stack.Screen name="UserInfo" component={UserInfoScreen} />
-        <Stack.Screen name="Nickname" component={NicknameScreen} />
-        <Stack.Screen name="Keywords" component={KeywordsScreen} />
-      </Stack.Group>
+      {!profile && (
+        <Stack.Group>
+          <Stack.Screen name="UserInfo" component={UserInfoScreen} />
+          <Stack.Screen name="Nickname" component={NicknameScreen} />
+          <Stack.Screen name="Keywords" component={KeywordsScreen} />
+        </Stack.Group>
+      )}
     </Stack.Navigator>
   );
 }
