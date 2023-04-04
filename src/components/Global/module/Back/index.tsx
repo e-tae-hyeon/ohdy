@@ -11,7 +11,7 @@ function Back({onPress}: BackProps) {
   const {goBack} = useNavigation();
 
   return (
-    <Pressable onPress={onPress ?? goBack} className="p-2 m-[-8px]">
+    <Pressable onPress={onPress ?? goBack} hitSlop={8}>
       <SvgIcon name="chevronLeft" size={32} />
     </Pressable>
   );

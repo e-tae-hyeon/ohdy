@@ -1,7 +1,7 @@
 import AppText from 'components/@base/AppText';
+import Back from 'components/Global/module/Back';
 import React from 'react';
 import {View} from 'react-native';
-import Back from '../Back';
 
 type ActionsHeaderProps = {
   title?: string;
@@ -11,7 +11,7 @@ type ActionsHeaderProps = {
 
 function ActionsHeader({title, onPressBack, right}: ActionsHeaderProps) {
   return (
-    <View className="z-10 flex-row justify-between h-12 p-2">
+    <View className="z-10 flex-row justify-between p-2">
       <Back onPress={onPressBack} />
       {title ? (
         <View className="absolute inset-0 items-center justify-center">
