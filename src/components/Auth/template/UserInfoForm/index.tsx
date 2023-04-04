@@ -13,7 +13,7 @@ import useCreateProfileStore from 'stores/useCreateProfileStore';
 
 function UserInfoForm() {
   const {brithDate, gender, setBrithDate, setGender} = useCreateProfileStore();
-  const disabled = useDisabled([!!brithDate, !!gender]);
+  const disabled = useDisabled([!brithDate, !gender]);
   const {navigate} = useNavigation<CreateProfileGroupNavigationProp>();
 
   const handlePress = () => {

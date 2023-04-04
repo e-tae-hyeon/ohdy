@@ -15,7 +15,7 @@ import {getErrorMessage} from 'utils/error';
 function VerifyCodeForm() {
   const {email, openPolicySheet} = useAuthStore();
   const [code, setCode] = useState('');
-  const disabled = useDisabled([code.length === 4]);
+  const disabled = useDisabled([code.length < 4]);
   const {showToast} = useToast();
   const login = useLogin();
 

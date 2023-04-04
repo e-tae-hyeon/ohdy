@@ -15,7 +15,7 @@ import {getErrorMessage} from 'utils/error';
 
 function NicknameForm() {
   const {nickname, setNickname} = useCreateProfileStore();
-  const disabled = useDisabled([!!nickname]);
+  const disabled = useDisabled([!nickname]);
   const {navigate} = useNavigation<CreateProfileGroupNavigationProp>();
   const {showToast} = useToast();
 

@@ -1,13 +1,15 @@
-import {useMemo} from 'react';
+import {useEffect, useState} from 'react';
 
+/** @param 충족하지 못하면 disabled */
 function useDisabled(conditions: boolean[]) {
-  return useMemo(() => {
-    let disabled = false;
-    conditions.forEach(condition => {
-      if (!condition) disabled = true;
-    });
-    return disabled;
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    const anyConditionMet = conditions.some(condition => condition);
+    setDisabled(anyConditionMet);
   }, [conditions]);
+
+  return disabled;
 }
 
 export default useDisabled;

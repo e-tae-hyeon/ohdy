@@ -16,7 +16,7 @@ import validator from 'validator';
 
 function EmailForm() {
   const {email, setEmail} = useAuthStore();
-  const disabled = useDisabled([validator.isEmail(email)]);
+  const disabled = useDisabled([!validator.isEmail(email)]);
   const {showToast, hideToast} = useToast();
   const {navigate} = useNavigation<AuthGroupNavigationProp>();
 
