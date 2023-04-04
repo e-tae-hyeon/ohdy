@@ -15,14 +15,13 @@ function AppText({
   align = 'left',
   children,
 }: AppTextProps) {
-  const {fontSize, fontWeight} = typoStyleMap[typoStyle];
+  const {fontSize, fontFamily} = typoStyleMap[typoStyle];
 
   return (
     <Text
-      className="font-default"
       style={{
         fontSize,
-        fontWeight,
+        fontFamily,
         textAlignVertical: 'center',
         textAlign: align,
         color,
@@ -34,14 +33,15 @@ function AppText({
 
 export default AppText;
 
-export type TypoStyle = 'Hero' | 'H1' | 'H2' | 'H3' | 'B1' | 'B2' | 'Link';
+export type TypoStyle = 'Hero' | 'H1' | 'H2' | 'H3' | 'B1' | 'B2' | 'Action';
 
-const typoStyleMap: Record<TypoStyle, {fontSize: number; fontWeight: any}> = {
-  Hero: {fontSize: 40, fontWeight: '700'},
-  H1: {fontSize: 28, fontWeight: '700'},
-  H2: {fontSize: 24, fontWeight: '700'},
-  H3: {fontSize: 20, fontWeight: '700'},
-  B1: {fontSize: 16, fontWeight: '500'},
-  B2: {fontSize: 14, fontWeight: '500'},
-  Link: {fontSize: 16, fontWeight: '700'},
-};
+const typoStyleMap: Record<TypoStyle, {fontSize: number; fontFamily: string}> =
+  {
+    Hero: {fontSize: 40, fontFamily: 'Pretendard-Bold'},
+    H1: {fontSize: 28, fontFamily: 'Pretendard-Bold'},
+    H2: {fontSize: 24, fontFamily: 'Pretendard-Bold'},
+    H3: {fontSize: 20, fontFamily: 'Pretendard-Bold'},
+    B1: {fontSize: 16, fontFamily: 'Pretendard-Medium'},
+    B2: {fontSize: 14, fontFamily: 'Pretendard-Medium'},
+    Action: {fontSize: 16, fontFamily: 'Pretendard-Bold'},
+  };
