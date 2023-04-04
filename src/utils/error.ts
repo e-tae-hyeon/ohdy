@@ -12,10 +12,10 @@ const errorMessageMap: Record<number, string> = {
 export function getErrorMessage(err: any) {
   if (isAxiosError(err)) {
     const errorCode = err.response?.data.code ?? 0;
-    const errorMessage = errorMessageMap[errorCode];
+    const errorMessage = errorMessageMap[errorCode] ?? errorMessageMap[0];
 
     return errorMessage;
   }
 
-  return '잠시 후 다시 시도해주세요.';
+  return errorMessageMap[0];
 }
