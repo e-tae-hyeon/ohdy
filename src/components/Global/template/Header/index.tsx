@@ -9,7 +9,7 @@ type HeaderProps = {
 
 function Header({title, right}: HeaderProps) {
   return (
-    <View className="flex-row items-center justify-between p-2">
+    <View className="flex-row items-center justify-between px-4 py-2">
       <AppText typoStyle="H3">{title}</AppText>
       {right}
     </View>
