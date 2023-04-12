@@ -15,7 +15,7 @@ function BottomSheet({isVisible, onBackDrop, children}: BottomSheetProps) {
       onBackButtonPress={onBackDrop}
       onBackdropPress={onBackDrop}
       className="justify-end m-0">
-      <View className="px-4 py-8 bg-white rounded-t-2xl">{children}</View>
+      <View className="bg-white rounded-t-2xl">{children}</View>
     </Modal>
   );
 }

@@ -44,7 +44,7 @@ function PolicyBottomSheet() {
 
   return (
     <BottomSheet isVisible={isVisiblePolicySheet}>
-      <FlexView gapSize="large">
+      <FlexView gapSize="large" className="px-4 py-8">
         <FlexView>
           <AppText typoStyle="H3" align="center">
             다음을 읽고 동의해주세요.
