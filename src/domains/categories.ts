@@ -4,9 +4,9 @@ export const categories = [
   '주점',
   '원데이클래스',
   '아트',
-  '관람',
+  '공연',
   '스튜디오',
-  '팝업스토어∙플래그십스토어',
+  '팝업∙플래그십 스토어',
 ] as const;
 
 export type ParentCategory = (typeof categories)[number];
@@ -44,9 +44,9 @@ export const subCategories: Record<ParentCategory, ReadonlyArray<string>> = {
     '기타',
   ] as const,
   아트: ['전시회', '체험 전시'] as const,
-  관람: ['뮤지컬', '연극', '음악공연장'] as const,
+  공연: ['뮤지컬', '연극', '음악공연장'] as const,
   스튜디오: ['셀프 스튜디오', '사진관'] as const,
-  '팝업스토어∙플래그십스토어': ['하이엔드', '더현대서울'] as const,
+  '팝업∙플래그십 스토어': ['하이엔드', '더현대서울'] as const,
 };
 
 export type SubCategory = {
