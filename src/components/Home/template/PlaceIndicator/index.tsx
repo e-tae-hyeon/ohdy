@@ -16,7 +16,7 @@ function PlaceIndicator({
 }: PlaceIndicatorProps) {
   const indicatorRef = useRef<FlatList<Category>>(null);
   const parentCategory = categories.find(
-    item => item.id === currentPlace.category.parentId,
+    item => item.id === currentPlace?.category.parentId,
   );
 
   useEffect(() => {
