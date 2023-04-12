@@ -1,10 +1,11 @@
 import PlaceCarouselItem from 'components/Home/module/PlaceCarouselItem';
 import usePopularPlaces from 'hooks/usePopularPlaces';
 import React, {useRef, useState} from 'react';
-import {View, useWindowDimensions} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import PlaceIndicator from '../PlaceIndicator';
 import {Place} from 'apis/types';
+import FlexView from 'components/@base/FlexView';
 
 function PlaceCarousel() {
   const {width} = useWindowDimensions();
@@ -22,7 +23,7 @@ function PlaceCarousel() {
   };
 
   return (
-    <View>
+    <FlexView className="py-4">
       <PlaceIndicator
         categories={parentCategories}
         currentPlace={currentPlace}
@@ -37,7 +38,7 @@ function PlaceCarousel() {
         sliderWidth={width}
         loop
       />
-    </View>
+    </FlexView>
   );
 }
 

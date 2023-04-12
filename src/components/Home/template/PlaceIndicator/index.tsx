@@ -50,9 +50,9 @@ function PlaceIndicator({
       ItemSeparatorComponent={() => <View className="px-2" />}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
-        paddingVertical: 16,
         paddingHorizontal: 32,
-        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
       }}
     />
   );
