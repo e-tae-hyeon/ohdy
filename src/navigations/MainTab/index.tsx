@@ -17,7 +17,7 @@ function MainTab() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarActiveTintColor: colors.black,
-        tabBarInactiveTintColor: colors.gray[200],
+        tabBarInactiveTintColor: colors.gray[300],
       }}>
       <Tab.Screen
         name="Home"
@@ -28,7 +28,15 @@ function MainTab() {
           ),
         }}
       />
-      <Tab.Screen name="Surfing" component={SurfingScreen} />
+      <Tab.Screen
+        name="Surfing"
+        component={SurfingScreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <SvgIcon name="list" size={size} color={color} />
+          ),
+        }}
+      />
       <Tab.Screen
         name="Liked"
         component={LikedScreen}
