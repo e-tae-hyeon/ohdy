@@ -49,3 +49,42 @@ export type Profile = {
   gender: Gender;
   brithDate: string;
 };
+
+export type Place = {
+  id: number;
+  name: string;
+  description: string;
+  coverImages: PlaceImage[];
+  category: Category;
+  location: Location;
+};
+
+export type Category = {
+  id: number;
+  name: string;
+  parentId?: number;
+};
+
+export type Location = {
+  id: number;
+  name: string;
+  parentId?: number;
+};
+
+export type PlaceImage = {
+  id: number;
+  uri: string;
+};
+
+export type GetRecommandedPlacesParams = {
+  filter: {
+    location?: string[];
+    headCount?: number;
+    price?: {
+      min: number;
+      max: number;
+    };
+    relationship?: string;
+    category: string[];
+  };
+};

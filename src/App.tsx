@@ -10,6 +10,7 @@ const queryClient = new QueryClient();
 
 function App() {
   const loadUser = useLoadUser();
+
   useEffect(() => {
     const load = async () => {
       await loadUser();
@@ -23,8 +24,8 @@ function App() {
         <NavigationContainer>
           <RootStack />
         </NavigationContainer>
+        <PolicyBottomSheet />
       </QueryClientProvider>
-      <PolicyBottomSheet />
       <ToastContainer />
     </>
   );

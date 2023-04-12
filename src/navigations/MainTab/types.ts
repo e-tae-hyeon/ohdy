@@ -1,6 +1,6 @@
 export type MainTabParamList = {
   Home: undefined;
   Surfing: undefined;
-  Like: undefined;
+  Liked: undefined;
   My: undefined;
 };
