@@ -27,7 +27,7 @@ function PlaceIndicator({
       index: categories.findIndex(item => item.id === parentCategory.id),
       viewPosition: 0.5,
     });
-  }, [parentCategory, indicatorRef.current]);
+  }, [currentPlace, parentCategory, indicatorRef.current]);
 
   const renderItem: ListRenderItem<Category> = useCallback(
     ({item}) => (
@@ -38,7 +38,7 @@ function PlaceIndicator({
         key={item.id}
       />
     ),
-    [categories],
+    [categories, parentCategory],
   );
 
   return (
@@ -51,7 +51,6 @@ function PlaceIndicator({
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         paddingHorizontal: 32,
-        flex: 1,
         justifyContent: 'center',
       }}
     />

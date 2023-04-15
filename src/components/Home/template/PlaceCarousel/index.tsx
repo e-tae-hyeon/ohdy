@@ -1,15 +1,15 @@
 import PlaceCarouselItem from 'components/Home/module/PlaceCarouselItem';
-import usePopularPlaces from 'hooks/usePopularPlaces';
 import React, {useRef, useState} from 'react';
 import {useWindowDimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import PlaceIndicator from '../PlaceIndicator';
 import {Place} from 'apis/types';
 import FlexView from 'components/@base/FlexView';
+import useRecommandedPlaces from 'hooks/useRecommandedPlaces';
 
 function PlaceCarousel() {
   const {width} = useWindowDimensions();
-  const {places, parentCategories} = usePopularPlaces();
+  const {places, isLoading, parentCategories} = useRecommandedPlaces();
   const [currentPlace, setCurrentPlace] = useState<Place>(places[0]);
   const carouselRef = useRef<Carousel<Place>>(null);
 
@@ -36,6 +36,7 @@ function PlaceCarousel() {
         itemWidth={width * 0.7}
         onSnapToItem={idx => setCurrentPlace(places[idx])}
         sliderWidth={width}
+        onLayout={() => setCurrentPlace(places[0])}
         loop
       />
     </FlexView>
