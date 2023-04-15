@@ -26,7 +26,7 @@ function FlexView({
 export default FlexView;
 
 const gapSizeMap = {
-  tiny: 4,
+  tiny: 2,
   small: 8,
   medium: 16,
   large: 32,
