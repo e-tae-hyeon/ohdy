@@ -11,15 +11,23 @@ import PlaceFilterCategories from '../PlaceFilterCategories';
 import Btn from 'components/@base/Btn';
 import usePlaceFilterStore from 'stores/usePlaceFilterStore';
 import useDisabled from 'hooks/useDisabled';
+import useRecommandedPlaces from 'hooks/useRecommandedPlaces';
 
 function PlaceFilter() {
   const [isVisibleFilter, setIsVisibleFilter] = useState(false);
-  const {locations, maxHeadCount, price, relationship, categories, clearAll} =
-    usePlaceFilterStore();
+  const {categories} = usePlaceFilterStore();
   const disabled = useDisabled([categories.length <= 0]);
+  const {refetchRecommmandedPlaces} = useRecommandedPlaces();
 
   const openFilter = () => setIsVisibleFilter(true);
   const closeFilter = () => setIsVisibleFilter(false);
+
+  const handlePressComplete = () => {
+    try {
+      refetchRecommmandedPlaces();
+      closeFilter();
+    } catch (err) {}
+  };
 
   return (
     <>
@@ -39,6 +47,7 @@ function PlaceFilter() {
               label={
                 disabled ? '가고 싶은 곳을 선택해주세요' : '플레이스 추천받기'
               }
+              onPress={handlePressComplete}
               disabled={disabled}
             />
           </FlexView>

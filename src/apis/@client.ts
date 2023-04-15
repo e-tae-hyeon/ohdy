@@ -2,10 +2,14 @@ import axios from 'axios';
 import Config from 'react-native-config';
 import tokenStorage from 'storages/tokenStorage';
 import {Tokens} from './types';
+import QueryString from 'qs';
 
 const client = axios.create({
   baseURL: Config.API_URI + '/api',
   withCredentials: true,
+  paramsSerializer: {
+    serialize: params => QueryString.stringify(params, {arrayFormat: 'comma'}),
+  },
 });
 
 export default client;

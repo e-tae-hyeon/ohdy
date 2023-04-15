@@ -6,6 +6,8 @@ import PlaceIndicator from '../PlaceIndicator';
 import {Place} from 'apis/types';
 import FlexView from 'components/@base/FlexView';
 import useRecommandedPlaces from 'hooks/useRecommandedPlaces';
+import PlaceCarouselSkeleton from 'components/Home/module/PlaceCarouselSkeleton';
+import PlaceIndicatorSkeleton from 'components/Home/module/PlaceIndicatorSkeleton';
 
 function PlaceCarousel() {
   const {width} = useWindowDimensions();
@@ -23,16 +25,26 @@ function PlaceCarousel() {
   };
 
   return (
-    <FlexView className="py-4">
-      <PlaceIndicator
-        categories={parentCategories}
-        currentPlace={currentPlace}
-        onPressItem={handlePressIndicator}
-      />
+    <FlexView className="flex-1 py-4">
+      {isLoading ? (
+        <PlaceIndicatorSkeleton />
+      ) : (
+        <PlaceIndicator
+          categories={parentCategories}
+          currentPlace={currentPlace}
+          onPressItem={handlePressIndicator}
+        />
+      )}
       <Carousel
         ref={carouselRef}
         data={places}
-        renderItem={({item}) => <PlaceCarouselItem place={item} />}
+        renderItem={({item}) =>
+          isLoading ? (
+            <PlaceCarouselSkeleton />
+          ) : (
+            <PlaceCarouselItem place={item} />
+          )
+        }
         itemWidth={width * 0.7}
         onSnapToItem={idx => setCurrentPlace(places[idx])}
         sliderWidth={width}

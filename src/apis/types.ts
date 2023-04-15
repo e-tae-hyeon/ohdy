@@ -77,14 +77,10 @@ export type PlaceImage = {
 };
 
 export type GetRecommandedPlacesParams = {
-  filter: {
-    location?: string[];
-    headCount?: number;
-    price?: {
-      min: number;
-      max: number;
-    };
-    relationship?: string;
-    category: string[];
-  };
+  locations?: string[];
+  maxHeadCount?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  relationship?: string;
+  categories: string[];
 };

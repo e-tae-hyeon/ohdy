@@ -77,9 +77,9 @@ const categoriesMap: Record<ParentCategory, {label: string; icon: any}> = {
     icon: 'drink',
     label: '주점',
   },
-  스튜디오: {
-    icon: 'camera',
-    label: '스튜디오',
+  원데이클래스: {
+    icon: 'art',
+    label: '원데이클래스',
   },
   아트: {
     icon: 'art',
@@ -89,9 +89,9 @@ const categoriesMap: Record<ParentCategory, {label: string; icon: any}> = {
     icon: 'show',
     label: '공연',
   },
-  원데이클래스: {
-    icon: 'art',
-    label: '원데이클래스',
+  스튜디오: {
+    icon: 'camera',
+    label: '스튜디오',
   },
   '팝업∙플래그십 스토어': {
     icon: 'store',
