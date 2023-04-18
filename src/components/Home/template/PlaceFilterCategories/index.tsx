@@ -95,6 +95,6 @@ const categoriesMap: Record<ParentCategory, {label: string; icon: any}> = {
   },
   '팝업∙플래그십 스토어': {
     icon: 'store',
-    label: '팝업/플래그십 스토어',
+    label: '팝업∙플래그십 스토어',
   },
 };
