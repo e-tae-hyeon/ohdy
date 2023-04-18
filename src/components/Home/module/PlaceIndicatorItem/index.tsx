@@ -1,7 +1,7 @@
 import colors from 'common/styles/colors';
 import AppText from 'components/@base/AppText';
 import React from 'react';
-import {Pressable, View} from 'react-native';
+import {Pressable} from 'react-native';
 
 type PlaceIndicatorItemProps = {
   categoryName: string;
