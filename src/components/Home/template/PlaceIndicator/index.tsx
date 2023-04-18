@@ -42,18 +42,19 @@ function PlaceIndicator({
   );
 
   return (
-    <FlatList
-      ref={indicatorRef}
-      data={categories}
-      renderItem={renderItem}
-      horizontal
-      ItemSeparatorComponent={() => <View className="px-2" />}
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{
-        paddingHorizontal: 32,
-        justifyContent: 'center',
-      }}
-    />
+    <View className="items-center justify-center">
+      <FlatList
+        ref={indicatorRef}
+        data={categories}
+        horizontal
+        renderItem={renderItem}
+        ItemSeparatorComponent={() => <View className="px-2" />}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 32,
+        }}
+      />
+    </View>
   );
 }
 
