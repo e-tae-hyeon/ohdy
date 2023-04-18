@@ -20,9 +20,7 @@ function PlaceIndicatorItem({
       className={`${
         isSelected ? 'border-b-black' : 'border-b-white'
       } pb-1 border-b`}>
-      <AppText
-        typoStyle="B2"
-        color={isSelected ? colors.black : colors.gray[300]}>
+      <AppText color={isSelected ? colors.black : colors.gray[300]}>
         {categoryName}
       </AppText>
     </Pressable>
