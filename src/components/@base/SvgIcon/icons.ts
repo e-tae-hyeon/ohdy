@@ -13,6 +13,7 @@ export {default as kakao} from 'assets/icons/kakao.svg';
 export {default as list} from 'assets/icons/list.svg';
 export {default as mail} from 'assets/icons/mail.svg';
 export {default as minus} from 'assets/icons/minus.svg';
+export {default as palette} from 'assets/icons/palette.svg';
 export {default as plus} from 'assets/icons/plus.svg';
 export {default as restaurant} from 'assets/icons/restaurant.svg';
 export {default as show} from 'assets/icons/show.svg';

@@ -78,7 +78,7 @@ const categoriesMap: Record<ParentCategory, {label: string; icon: any}> = {
     label: '주점',
   },
   원데이클래스: {
-    icon: 'art',
+    icon: 'palette',
     label: '원데이클래스',
   },
   아트: {
