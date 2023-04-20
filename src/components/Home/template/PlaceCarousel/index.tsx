@@ -1,21 +1,21 @@
 import PlaceCarouselItem from 'components/Home/module/PlaceCarouselItem';
 import React, {useCallback, useRef, useState} from 'react';
-import {ListRenderItem, useWindowDimensions} from 'react-native';
+import {ListRenderItem, View, useWindowDimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import PlaceIndicator from '../PlaceIndicator';
-import {Place} from 'apis/types';
+import {PlaceSummary} from 'apis/types';
 import FlexView from 'components/@base/FlexView';
 import useRecommandedPlaces from 'hooks/useRecommandedPlaces';
-import PlaceCarouselSkeleton from 'components/Home/module/PlaceCarouselSkeleton';
-import PlaceIndicatorSkeleton from 'components/Home/module/PlaceIndicatorSkeleton';
 import {useNavigation} from '@react-navigation/native';
 import {RootStackNavigationProp} from 'navigations/RootStack/types';
+import PlaceCarouselSkeleton from 'components/Home/skeleton/PlaceCarouselSkeleton';
+import PlaceIndicatorSkeleton from 'components/Home/skeleton/PlaceIndicatorSkeleton';
 
 function PlaceCarousel() {
   const {width} = useWindowDimensions();
   const {places, isLoading, parentCategories} = useRecommandedPlaces();
-  const [currentPlace, setCurrentPlace] = useState<Place>(places[0]);
-  const carouselRef = useRef<Carousel<Place>>(null);
+  const [currentPlace, setCurrentPlace] = useState<PlaceSummary>(places[0]);
+  const carouselRef = useRef<Carousel<PlaceSummary>>(null);
   const {navigate} = useNavigation<RootStackNavigationProp>();
 
   const handlePressIndicator = (parentId: number) => {
@@ -35,27 +35,30 @@ function PlaceCarousel() {
     [currentPlace],
   );
 
-  const renderItem: ListRenderItem<Place> = useCallback(
-    ({item}) =>
-      isLoading ? (
-        <PlaceCarouselSkeleton />
-      ) : (
-        <PlaceCarouselItem place={item} onPress={handlePressCarouselItem} />
-      ),
-    [isLoading, currentPlace, places],
+  const renderItem: ListRenderItem<PlaceSummary> = useCallback(
+    ({item}) => (
+      <PlaceCarouselItem place={item} onPress={handlePressCarouselItem} />
+    ),
+    [currentPlace, places],
   );
+
+  if (isLoading)
+    return (
+      <FlexView className="flex-1 py-4">
+        <PlaceIndicatorSkeleton />
+        <View>
+          <PlaceCarouselSkeleton />
+        </View>
+      </FlexView>
+    );
 
   return (
     <FlexView className="flex-1 py-4">
-      {isLoading ? (
-        <PlaceIndicatorSkeleton />
-      ) : (
-        <PlaceIndicator
-          categories={parentCategories}
-          currentPlace={currentPlace}
-          onPressItem={handlePressIndicator}
-        />
-      )}
+      <PlaceIndicator
+        categories={parentCategories}
+        currentPlace={currentPlace}
+        onPressItem={handlePressIndicator}
+      />
       <Carousel
         ref={carouselRef}
         data={places}

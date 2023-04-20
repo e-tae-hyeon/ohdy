@@ -1,11 +1,11 @@
-import {Category, Place} from 'apis/types';
+import {Category, PlaceSummary} from 'apis/types';
 import PlaceIndicatorItem from 'components/Home/module/PlaceIndicatorItem';
 import React, {useCallback, useEffect, useRef} from 'react';
 import {FlatList, ListRenderItem, View} from 'react-native';
 
 type PlaceIndicatorProps = {
   categories: Category[];
-  currentPlace: Place;
+  currentPlace: PlaceSummary;
   onPressItem: (parentId: number) => void;
 };
 

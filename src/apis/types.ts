@@ -50,13 +50,39 @@ export type Profile = {
   brithDate: string;
 };
 
-export type Place = {
+export type PlaceSummary = {
   id: number;
   name: string;
   description: string;
   coverImages: PlaceImage[];
   category: Category;
   location: Location;
+};
+
+export type Place = {
+  id: number;
+  name: string;
+  description: string;
+  locationId: number;
+  categoryId: number;
+  maxHeadCount: number;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+  coverImages: PlaceImage[];
+  infoImages: PlaceImage[];
+  keywords: Keyword[];
+  links: PlaceLink[];
+  relationships: Relationship[];
+  category: Category;
+  location: Location;
+  placeStat: PlaceStat;
+  isLiked: boolean;
+};
+
+export type PlaceImage = {
+  id: number;
+  uri: string;
 };
 
 export type Category = {
@@ -71,9 +97,30 @@ export type Location = {
   parentId?: number;
 };
 
-export type PlaceImage = {
+export type Keyword = {
   id: number;
+  name: string;
+};
+
+export type PlaceLinkProvider = 'home' | 'naver' | 'instagram';
+
+export type PlaceLink = {
+  id: number;
+  placeId: number;
+  provider: PlaceLinkProvider;
   uri: string;
+};
+
+export type Relationship = {
+  id: number;
+  name: string;
+};
+
+export type PlaceStat = {
+  likes: number;
+  placeId: number;
+  score: number;
+  views: number;
 };
 
 export type GetRecommandedPlacesParams = {

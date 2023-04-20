@@ -1,4 +1,4 @@
-import {Place} from 'apis/types';
+import {PlaceSummary} from 'apis/types';
 import colors from 'common/styles/colors';
 import AppText from 'components/@base/AppText';
 import FlexView from 'components/@base/FlexView';
@@ -7,7 +7,7 @@ import {ImageBackground, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 type PlaceCarouselItemProps = {
-  place: Place;
+  place: PlaceSummary;
   onPress: (id: number) => void;
 };
 
