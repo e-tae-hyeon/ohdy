@@ -33,7 +33,15 @@ function AppText({
 
 export default AppText;
 
-export type TypoStyle = 'Hero' | 'H1' | 'H2' | 'H3' | 'B1' | 'B2' | 'Action';
+export type TypoStyle =
+  | 'Hero'
+  | 'H1'
+  | 'H2'
+  | 'H3'
+  | 'B1'
+  | 'B2'
+  | 'Caption'
+  | 'Action';
 
 const typoStyleMap: Record<TypoStyle, {fontSize: number; fontFamily: string}> =
   {
@@ -43,5 +51,6 @@ const typoStyleMap: Record<TypoStyle, {fontSize: number; fontFamily: string}> =
     H3: {fontSize: 20, fontFamily: 'Pretendard-Bold'},
     B1: {fontSize: 16, fontFamily: 'Pretendard-Medium'},
     B2: {fontSize: 14, fontFamily: 'Pretendard-Medium'},
+    Caption: {fontSize: 12, fontFamily: 'Pretendard-Medium'},
     Action: {fontSize: 16, fontFamily: 'Pretendard-Bold'},
   };
