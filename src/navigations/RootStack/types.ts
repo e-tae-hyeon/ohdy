@@ -1,7 +1,9 @@
+import {RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   MainTab: undefined;
+  PlaceDetail: {id: number};
 } & AuthGroupParamList &
   CreateProfileGroupParamList;
 
@@ -25,3 +27,8 @@ export type AuthGroupNavigationProp =
 
 export type CreateProfileGroupNavigationProp =
   NativeStackNavigationProp<CreateProfileGroupParamList>;
+
+export type PlaceDetailScreenRouteProp = RouteProp<
+  RootStackParamList,
+  'PlaceDetail'
+>;

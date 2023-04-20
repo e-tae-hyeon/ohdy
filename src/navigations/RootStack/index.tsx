@@ -10,6 +10,7 @@ import useUserStore from 'stores/useUserStore';
 import {RootStackParamList} from './types';
 import useMyProfile from 'hooks/useMyProfile';
 import MainTab from 'navigations/MainTab';
+import PlaceDetailScreen from 'screens/place/PlaceDetailScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -35,6 +36,7 @@ function RootStack() {
       )}
       <Stack.Group>
         <Stack.Screen name="MainTab" component={MainTab} />
+        <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
