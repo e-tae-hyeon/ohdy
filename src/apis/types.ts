@@ -132,3 +132,20 @@ export type GetRecommandedPlacesParams = {
   relationship?: string;
   categories: string[];
 };
+
+export type GetPlacesParams = {
+  cursor?: number;
+  mode: PlacesOrderMode;
+};
+
+export type PlacesOrderMode = 'recent' | 'popular';
+
+export type GetPlacesResult = {
+  places: PlaceSummary[];
+  pageInfo: PageInfo;
+};
+
+export type PageInfo = {
+  endCursor: number | null;
+  hasNextPage: boolean;
+};

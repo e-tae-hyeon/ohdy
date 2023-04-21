@@ -10,6 +10,7 @@ type PlaceListProps = {
   isLoading: boolean;
   onRefresh: () => void;
   isRefreshing: boolean;
+  onEndReached?: () => void;
 };
 
 function PlaceList({
@@ -17,6 +18,7 @@ function PlaceList({
   isLoading,
   onRefresh,
   isRefreshing,
+  onEndReached,
 }: PlaceListProps) {
   const renderItem: ListRenderItem<PlaceSummary> = useCallback(
     ({item}) => <PlaceCard placeSummary={item} key={item.id} />,
@@ -41,7 +43,8 @@ function PlaceList({
       onRefresh={onRefresh}
       refreshing={isRefreshing}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{padding: 16}}
+      contentContainerStyle={{paddingHorizontal: 16}}
+      onEndReached={onEndReached}
     />
   );
 }

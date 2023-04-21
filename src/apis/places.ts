@@ -1,5 +1,11 @@
 import client from './@client';
-import {GetRecommandedPlacesParams, Place, PlaceSummary} from './types';
+import {
+  GetPlacesParams,
+  GetPlacesResult,
+  GetRecommandedPlacesParams,
+  Place,
+  PlaceSummary,
+} from './types';
 
 export async function getPopularPlaces() {
   const res = await client.get<PlaceSummary[]>('/places/popular');
@@ -35,6 +41,12 @@ export async function unlikePlace(id: number, controller?: AbortController) {
   const res = await client.delete(`/places/${id}/like`, {
     signal: controller?.signal,
   });
+
+  return res.data;
+}
+
+export async function getPlaces(params: GetPlacesParams) {
+  const res = await client.get<GetPlacesResult>('/places', {params});
 
   return res.data;
 }
