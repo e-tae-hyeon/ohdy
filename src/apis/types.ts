@@ -57,6 +57,7 @@ export type PlaceSummary = {
   coverImages: PlaceImage[];
   category: Category;
   location: Location;
+  isLiked: boolean;
 };
 
 export type Place = {
