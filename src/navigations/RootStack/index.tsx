@@ -12,6 +12,7 @@ import useMyProfile from 'hooks/useMyProfile';
 import MainTab from 'navigations/MainTab';
 import PlaceDetailScreen from 'screens/place/PlaceDetailScreen';
 import SearchScreen from 'screens/surfing/SearchScreen';
+import CategoryResultScreen from 'screens/surfing/CategoryResultScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -39,6 +40,7 @@ function RootStack() {
         <Stack.Screen name="MainTab" component={MainTab} />
         <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="CategoryResult" component={CategoryResultScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );

@@ -5,6 +5,7 @@ import {
   GetRecommandedPlacesParams,
   Place,
   PlaceSummary,
+  SearchPlacesByCategoryParams,
 } from './types';
 
 export async function getPopularPlaces() {
@@ -47,6 +48,16 @@ export async function unlikePlace(id: number, controller?: AbortController) {
 
 export async function getPlaces(params: GetPlacesParams) {
   const res = await client.get<GetPlacesResult>('/places', {params});
+
+  return res.data;
+}
+
+export async function searchPlacesByCategory(
+  params: SearchPlacesByCategoryParams,
+) {
+  const res = await client.get<GetPlacesResult>('/places/search/category', {
+    params,
+  });
 
   return res.data;
 }

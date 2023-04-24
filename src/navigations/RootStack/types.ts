@@ -5,6 +5,7 @@ export type RootStackParamList = {
   MainTab: undefined;
   PlaceDetail: {id: number};
   Search: undefined;
+  CategoryResult: {category: string};
 } & AuthGroupParamList &
   CreateProfileGroupParamList;
 
@@ -32,4 +33,9 @@ export type CreateProfileGroupNavigationProp =
 export type PlaceDetailScreenRouteProp = RouteProp<
   RootStackParamList,
   'PlaceDetail'
+>;
+
+export type CategoryResultScreenRouteProp = RouteProp<
+  RootStackParamList,
+  'CategoryResult'
 >;

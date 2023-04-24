@@ -149,3 +149,8 @@ export type PageInfo = {
   endCursor: number | null;
   hasNextPage: boolean;
 };
+
+export type SearchPlacesByCategoryParams = {
+  category: string;
+  cursor?: number;
+};

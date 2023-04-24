@@ -42,9 +42,9 @@ function PlaceList({
       numColumns={2}
       onRefresh={onRefresh}
       refreshing={isRefreshing}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{paddingHorizontal: 16}}
+      contentContainerStyle={{paddingHorizontal: 16, paddingBottom: 32}}
       onEndReached={onEndReached}
+      onEndReachedThreshold={0.5}
     />
   );
 }
