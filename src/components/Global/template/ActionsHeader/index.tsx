@@ -23,10 +23,14 @@ function ActionsHeader({
     <View
       className="z-10 flex-row justify-between p-2"
       style={{backgroundColor: bgColor}}>
-      <Back onPress={onPressBack} color={tintColor} />
+      <View className="z-50">
+        <Back onPress={onPressBack} color={tintColor} />
+      </View>
       {title ? (
         <View className="absolute inset-0 items-center justify-center">
-          <AppText color={tintColor}>{title}</AppText>
+          <AppText color={tintColor} typoStyle="Action">
+            {title}
+          </AppText>
         </View>
       ) : undefined}
       {right}
