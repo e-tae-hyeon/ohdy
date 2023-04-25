@@ -1,3 +1,4 @@
+import {unregister} from 'apis/auth';
 import FlexView from 'components/@base/FlexView';
 import ActionCell from 'components/User/module/ActionCell';
 import useLogout from 'hooks/useLogout';
@@ -15,6 +16,7 @@ function UserAccountActions() {
       confirmLabel: '로그아웃',
       onCancel: closeDialog,
       onConfirm: () => {
+        logout();
         closeDialog();
       },
     });
@@ -27,8 +29,10 @@ function UserAccountActions() {
       description: '정말 회원탈퇴 하실건가요?',
       confirmLabel: '회원탈퇴',
       onCancel: closeDialog,
-      onConfirm: () => {
+      onConfirm: async () => {
+        await unregister();
         closeDialog();
+        logout();
       },
     });
     openDialog();
