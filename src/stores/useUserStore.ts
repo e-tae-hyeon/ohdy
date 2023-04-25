@@ -7,7 +7,6 @@ type State = {
 
 type Actions = {
   setUser: (by: User) => void;
-
   clear: () => void;
 };
 
