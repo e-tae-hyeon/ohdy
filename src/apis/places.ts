@@ -6,6 +6,7 @@ import {
   Place,
   PlaceSummary,
   SearchPlacesByCategoryParams,
+  SearchPlacesParams,
 } from './types';
 
 export async function getPopularPlaces() {
@@ -58,6 +59,12 @@ export async function searchPlacesByCategory(
   const res = await client.get<GetPlacesResult>('/places/search/category', {
     params,
   });
+
+  return res.data;
+}
+
+export async function searchPlaces(params: SearchPlacesParams) {
+  const res = await client.get<GetPlacesResult>('/places/search', {params});
 
   return res.data;
 }

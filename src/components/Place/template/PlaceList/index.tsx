@@ -8,8 +8,8 @@ import React, {useCallback} from 'react';
 type PlaceListProps = {
   placeSummarys: PlaceSummary[];
   isLoading: boolean;
-  onRefresh: () => void;
-  isRefreshing: boolean;
+  onRefresh?: () => void;
+  isRefreshing?: boolean;
   onEndReached?: () => void;
 };
 

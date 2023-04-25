@@ -10,12 +10,12 @@ import SurfingCategoryItem from 'components/Surfing/module/SurfingCategoryItem';
 import AppText from 'components/@base/AppText';
 import {FlashList, ListRenderItem} from '@shopify/flash-list';
 import {useNavigation} from '@react-navigation/native';
-import {RootStackNavigationProp} from 'navigations/RootStack/types';
+import {SearchGroupNavigationProp} from 'navigations/RootStack/types';
 
 function SurfingCategories() {
   const [selectedParentCategory, setSelectedParentCategory] =
     useState<ParentCategory>(categories[0]);
-  const {navigate} = useNavigation<RootStackNavigationProp>();
+  const {navigate} = useNavigation<SearchGroupNavigationProp>();
 
   const handlePressParentCategory = (by: ParentCategory) =>
     setSelectedParentCategory(by);

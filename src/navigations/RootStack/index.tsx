@@ -39,6 +39,8 @@ function RootStack() {
       <Stack.Group>
         <Stack.Screen name="MainTab" component={MainTab} />
         <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
+      </Stack.Group>
+      <Stack.Group>
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="CategoryResult" component={CategoryResultScreen} />
       </Stack.Group>

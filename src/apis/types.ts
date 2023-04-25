@@ -154,3 +154,8 @@ export type SearchPlacesByCategoryParams = {
   category: string;
   cursor?: number;
 };
+
+export type SearchPlacesParams = {
+  keyword: string;
+  cursor?: number;
+};

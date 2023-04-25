@@ -4,10 +4,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 export type RootStackParamList = {
   MainTab: undefined;
   PlaceDetail: {id: number};
-  Search: undefined;
-  CategoryResult: {category: string};
 } & AuthGroupParamList &
-  CreateProfileGroupParamList;
+  CreateProfileGroupParamList &
+  SearchGroupParamList;
 
 export type AuthGroupParamList = {
   Auth: undefined;
@@ -21,6 +20,11 @@ export type CreateProfileGroupParamList = {
   Keywords: undefined;
 };
 
+export type SearchGroupParamList = {
+  Search: undefined;
+  CategoryResult: {category: string};
+};
+
 export type RootStackNavigationProp =
   NativeStackNavigationProp<RootStackParamList>;
 
@@ -30,12 +34,15 @@ export type AuthGroupNavigationProp =
 export type CreateProfileGroupNavigationProp =
   NativeStackNavigationProp<CreateProfileGroupParamList>;
 
+export type SearchGroupNavigationProp =
+  NativeStackNavigationProp<SearchGroupParamList>;
+
 export type PlaceDetailScreenRouteProp = RouteProp<
   RootStackParamList,
   'PlaceDetail'
 >;
 
 export type CategoryResultScreenRouteProp = RouteProp<
-  RootStackParamList,
+  SearchGroupParamList,
   'CategoryResult'
 >;

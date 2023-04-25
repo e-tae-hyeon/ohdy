@@ -4,12 +4,12 @@ import SurfingFilter from '../SurfingFilter';
 import {Pressable} from 'react-native';
 import AppText from 'components/@base/AppText';
 import {useNavigation} from '@react-navigation/native';
-import {RootStackNavigationProp} from 'navigations/RootStack/types';
+import {SearchGroupNavigationProp} from 'navigations/RootStack/types';
 import colors from 'common/styles/colors';
 import SvgIcon from 'components/@base/SvgIcon';
 
 function SurfingHeader() {
-  const {navigate} = useNavigation<RootStackNavigationProp>();
+  const {navigate} = useNavigation<SearchGroupNavigationProp>();
 
   const handlePressSearchbar = () => {
     navigate('Search');
