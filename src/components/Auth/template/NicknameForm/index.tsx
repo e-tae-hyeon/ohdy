@@ -1,4 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
+import {useMutation} from '@tanstack/react-query';
 import {checkAbleNickname} from 'apis/auth';
 import Btn from 'components/@base/Btn';
 import FlexView from 'components/@base/FlexView';
@@ -24,13 +25,15 @@ function NicknameForm() {
     setNickname(by);
   };
 
-  const handlePress = async () => {
-    try {
-      await checkAbleNickname(nickname);
+  const {mutate, isLoading} = useMutation(checkAbleNickname, {
+    onSuccess: () => {
       navigate('Keywords');
-    } catch (err) {
-      showToast({type: 'error', message: getErrorMessage(err)});
-    }
+    },
+    onError: err => showToast({type: 'error', message: getErrorMessage(err)}),
+  });
+
+  const handlePress = () => {
+    mutate(nickname);
   };
 
   return (
@@ -48,7 +51,11 @@ function NicknameForm() {
             autoFocus
             maxLength={10}
           />
-          <Btn label="계속하기" onPress={handlePress} disabled={disabled} />
+          <Btn
+            label="계속하기"
+            onPress={handlePress}
+            disabled={disabled || isLoading}
+          />
         </FlexView>
       </View>
     </KeyboardAvoidingContainer>

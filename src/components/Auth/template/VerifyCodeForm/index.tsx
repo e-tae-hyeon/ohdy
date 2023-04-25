@@ -1,3 +1,4 @@
+import {useMutation} from '@tanstack/react-query';
 import {verifyCode} from 'apis/auth';
 import Btn from 'components/@base/Btn';
 import FlexView from 'components/@base/FlexView';
@@ -18,21 +19,16 @@ function VerifyCodeForm() {
   const disabled = useDisabled([code.length < 4]);
   const {showToast} = useToast();
   const login = useLogin();
+  const {mutate, isLoading} = useMutation(verifyCode, {
+    onSuccess: async data => {
+      if (data) await login(data);
+      else openPolicySheet();
+    },
+    onError: err => showToast({type: 'error', message: getErrorMessage(err)}),
+  });
 
-  const handlePress = async () => {
-    try {
-      const userData = await verifyCode({email, code: parseInt(code)});
-
-      if (userData) {
-        // handle login
-        await login(userData);
-      } else {
-        // handle register
-        openPolicySheet();
-      }
-    } catch (err) {
-      showToast({type: 'error', message: getErrorMessage(err)});
-    }
+  const handlePress = () => {
+    mutate({email, code: parseInt(code)});
   };
 
   return (
@@ -41,7 +37,11 @@ function VerifyCodeForm() {
         <GuideText title={[`${email}(으)로`, '인증코드가 발송되었습니다.']} />
         <FlexView gapSize="large" className="flex-1">
           <VerifyCodeInput value={code} onChangeText={setCode} />
-          <Btn label="인증하기" onPress={handlePress} disabled={disabled} />
+          <Btn
+            label="인증하기"
+            onPress={handlePress}
+            disabled={disabled || isLoading}
+          />
         </FlexView>
       </View>
     </KeyboardAvodingContainer>

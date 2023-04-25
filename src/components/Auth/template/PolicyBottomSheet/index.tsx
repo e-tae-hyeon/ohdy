@@ -1,3 +1,4 @@
+import {useMutation} from '@tanstack/react-query';
 import {register} from 'apis/auth';
 import {PRIVACY_POLICY_URI, TERM_OF_USE_URI} from 'common/constants/string';
 import AppText from 'components/@base/AppText';
@@ -22,23 +23,24 @@ function PolicyBottomSheet() {
     Linking.openURL(uri);
   };
 
-  const handlePress = async () => {
-    try {
-      switch (registerType) {
-        case 'local': {
-          const userData = await register({type: registerType, email});
-
-          await login(userData);
-          break;
-        }
-        case 'social': {
-        }
-        default:
-          break;
-      }
+  const {mutate, isLoading} = useMutation(register, {
+    onSuccess: async data => {
+      await login(data);
       closePolicySheet();
-    } catch (err) {
-      showToast({type: 'error', message: getErrorMessage(err)});
+    },
+    onError: err => showToast({type: 'error', message: getErrorMessage(err)}),
+  });
+
+  const handlePress = () => {
+    switch (registerType) {
+      case 'local': {
+        mutate({type: 'local', email});
+        break;
+      }
+      case 'social': {
+      }
+      default:
+        break;
     }
   };
 
@@ -63,7 +65,11 @@ function PolicyBottomSheet() {
             </Pressable>
           </View>
         </FlexView>
-        <Btn label="동의하고 회원가입" onPress={handlePress} />
+        <Btn
+          label="동의하고 회원가입"
+          onPress={handlePress}
+          disabled={isLoading}
+        />
       </FlexView>
     </BottomSheet>
   );

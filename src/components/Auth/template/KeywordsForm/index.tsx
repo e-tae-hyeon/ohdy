@@ -1,4 +1,4 @@
-import {useQueryClient} from '@tanstack/react-query';
+import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {createProfile} from 'apis/auth';
 import Btn from 'components/@base/Btn';
 import FlexView from 'components/@base/FlexView';
@@ -38,19 +38,21 @@ function KeywordsForm() {
     }
   };
 
-  const handlePressSubmit = async () => {
-    try {
-      if (!brithDate || !gender || !nickname) return;
-      const profile = await createProfile({
-        brithDate: getFormatDate(brithDate),
-        gender,
-        keywords,
-        nickname,
-      });
+  const {mutate, isLoading} = useMutation(createProfile, {
+    onSuccess: profile => {
       queryClient.setQueryData(['myProfile'], profile);
-    } catch (err) {
-      showToast({type: 'error', message: getErrorMessage(err)});
-    }
+    },
+    onError: err => showToast({type: 'error', message: getErrorMessage(err)}),
+  });
+
+  const handlePressSubmit = async () => {
+    if (!brithDate || !gender || !nickname) return;
+    mutate({
+      brithDate: getFormatDate(brithDate),
+      gender,
+      keywords,
+      nickname,
+    });
   };
 
   return (
@@ -77,7 +79,11 @@ function KeywordsForm() {
             />
           ))}
         </View>
-        <Btn label="시작하기" onPress={handlePressSubmit} disabled={disabled} />
+        <Btn
+          label="시작하기"
+          onPress={handlePressSubmit}
+          disabled={disabled || isLoading}
+        />
       </FlexView>
     </View>
   );
