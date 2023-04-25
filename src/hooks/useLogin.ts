@@ -14,7 +14,7 @@ function useLogin() {
   return async ({user, tokens}: LoginUserData) => {
     try {
       applyTokenClient(tokens.accessToken);
-      await queryClient.invalidateQueries(['myProfile']);
+      await queryClient.refetchQueries(['myProfile']);
       setUser(user);
       await tokenStorage.set(tokens);
     } catch (err) {
