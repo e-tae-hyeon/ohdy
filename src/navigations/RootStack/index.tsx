@@ -24,32 +24,38 @@ function RootStack() {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      {!user && (
+      {!user ? (
         <Stack.Group>
           <Stack.Screen name="Auth" component={AuthScreen} />
           <Stack.Screen name="Email" component={EmailScreen} />
           <Stack.Screen name="VerifyCode" component={VerifyCodeScreen} />
         </Stack.Group>
+      ) : (
+        <>
+          {!profile && (
+            <Stack.Group>
+              <Stack.Screen name="UserInfo" component={UserInfoScreen} />
+              <Stack.Screen name="Nickname" component={NicknameScreen} />
+              <Stack.Screen name="Keywords" component={KeywordsScreen} />
+            </Stack.Group>
+          )}
+          <Stack.Group>
+            <Stack.Screen name="MainTab" component={MainTab} />
+            <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
+          </Stack.Group>
+          <Stack.Group>
+            <Stack.Screen name="Search" component={SearchScreen} />
+            <Stack.Screen
+              name="CategoryResult"
+              component={CategoryResultScreen}
+            />
+          </Stack.Group>
+          <Stack.Group>
+            <Stack.Screen name="Settings" component={SettingsScreen} />
+            <Stack.Screen name="Feedback" component={FeedbackScreen} />
+          </Stack.Group>
+        </>
       )}
-      {!profile && (
-        <Stack.Group>
-          <Stack.Screen name="UserInfo" component={UserInfoScreen} />
-          <Stack.Screen name="Nickname" component={NicknameScreen} />
-          <Stack.Screen name="Keywords" component={KeywordsScreen} />
-        </Stack.Group>
-      )}
-      <Stack.Group>
-        <Stack.Screen name="MainTab" component={MainTab} />
-        <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
-      </Stack.Group>
-      <Stack.Group>
-        <Stack.Screen name="Search" component={SearchScreen} />
-        <Stack.Screen name="CategoryResult" component={CategoryResultScreen} />
-      </Stack.Group>
-      <Stack.Group>
-        <Stack.Screen name="Settings" component={SettingsScreen} />
-        <Stack.Screen name="Feedback" component={FeedbackScreen} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 }
