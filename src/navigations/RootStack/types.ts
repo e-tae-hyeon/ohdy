@@ -6,7 +6,8 @@ export type RootStackParamList = {
   PlaceDetail: {id: number};
 } & AuthGroupParamList &
   CreateProfileGroupParamList &
-  SearchGroupParamList;
+  SearchGroupParamList &
+  SettingsGroupParamList;
 
 export type AuthGroupParamList = {
   Auth: undefined;
@@ -25,6 +26,11 @@ export type SearchGroupParamList = {
   CategoryResult: {category: string};
 };
 
+export type SettingsGroupParamList = {
+  Settings: undefined;
+  Feedback: undefined;
+};
+
 export type RootStackNavigationProp =
   NativeStackNavigationProp<RootStackParamList>;
 
@@ -36,6 +42,9 @@ export type CreateProfileGroupNavigationProp =
 
 export type SearchGroupNavigationProp =
   NativeStackNavigationProp<SearchGroupParamList>;
+
+export type SettingsGroupNavigationProp =
+  NativeStackNavigationProp<SettingsGroupParamList>;
 
 export type PlaceDetailScreenRouteProp = RouteProp<
   RootStackParamList,

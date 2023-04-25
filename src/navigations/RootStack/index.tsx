@@ -13,6 +13,8 @@ import MainTab from 'navigations/MainTab';
 import PlaceDetailScreen from 'screens/place/PlaceDetailScreen';
 import SearchScreen from 'screens/surfing/SearchScreen';
 import CategoryResultScreen from 'screens/surfing/CategoryResultScreen';
+import SettingsScreen from 'screens/my/SettingsScreen';
+import FeedbackScreen from 'screens/my/FeedbackScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -43,6 +45,10 @@ function RootStack() {
       <Stack.Group>
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="CategoryResult" component={CategoryResultScreen} />
+      </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="Feedback" component={FeedbackScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
