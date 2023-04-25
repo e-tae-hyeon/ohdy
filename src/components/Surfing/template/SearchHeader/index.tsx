@@ -10,8 +10,8 @@ function SearchHeader() {
     keyword,
     setKeyword,
     clearKeyword,
-    setIsFocusedSearchbar,
     clearIsSearched,
+    setIsFocusedSearchbar,
     clearIsFocusedSearchbar,
   } = useSearchStore();
   const {fetchSearch} = useSearchPlaces(keyword);
