@@ -1,5 +1,6 @@
 import ToastMessage from 'components/Global/module/ToastMessage';
 import React from 'react';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Toast, {ToastConfig} from 'react-native-toast-message';
 
 const toastConfig: ToastConfig = {
@@ -12,7 +13,9 @@ const toastConfig: ToastConfig = {
 };
 
 function ToastContainer() {
-  return <Toast config={toastConfig} />;
+  const {top} = useSafeAreaInsets();
+
+  return <Toast config={toastConfig} topOffset={top + 12} />;
 }
 
 export default ToastContainer;
