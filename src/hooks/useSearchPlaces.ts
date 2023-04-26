@@ -10,13 +10,18 @@ function useSearchPlaces(keyword: string) {
       ['searchPlaces', keyword],
       ({pageParam}) => searchPlaces({keyword, cursor: pageParam}),
       {
-        enabled: isSearched,
+        enabled: false,
         getNextPageParam: last =>
           last.pageInfo.hasNextPage ? last.pageInfo.endCursor : null,
+        onSuccess: () => {
+          setIsSearched(true);
+        },
       },
     );
 
-  const fetchSearch = () => setIsSearched(true);
+  const fetchSearch = () => {
+    refetch();
+  };
 
   const fetchNext = () => {
     if (!hasNextPage) return;
