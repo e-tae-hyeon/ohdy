@@ -10,7 +10,7 @@ type ActionCellProps = {
 function ActionCell({label, onPress}: ActionCellProps) {
   return (
     <Pressable onPress={onPress} className="p-4">
-      <AppText typoStyle="Action">{label}</AppText>
+      <AppText>{label}</AppText>
     </Pressable>
   );
 }

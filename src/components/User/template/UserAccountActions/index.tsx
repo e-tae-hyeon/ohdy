@@ -1,8 +1,8 @@
 import {unregister} from 'apis/auth';
-import FlexView from 'components/@base/FlexView';
 import ActionCell from 'components/User/module/ActionCell';
 import useLogout from 'hooks/useLogout';
 import React from 'react';
+import {View} from 'react-native';
 import useDialogStore from 'stores/useDialogStore';
 
 function UserAccountActions() {
@@ -39,10 +39,10 @@ function UserAccountActions() {
   };
 
   return (
-    <FlexView>
+    <View>
       <ActionCell label="로그아웃" onPress={handlePressLogout} />
       <ActionCell label="회원탈퇴" onPress={handlePressUnregister} />
-    </FlexView>
+    </View>
   );
 }
 
