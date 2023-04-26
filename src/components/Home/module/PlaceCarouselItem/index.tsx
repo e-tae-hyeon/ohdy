@@ -3,7 +3,7 @@ import colors from 'common/styles/colors';
 import AppText from 'components/@base/AppText';
 import FlexView from 'components/@base/FlexView';
 import React from 'react';
-import {ImageBackground, Pressable} from 'react-native';
+import {ImageBackground, Pressable, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 type PlaceCarouselItemProps = {
@@ -30,15 +30,14 @@ function PlaceCarouselItem({place, onPress}: PlaceCarouselItemProps) {
           ]}
           className="px-4 py-8">
           <FlexView>
-            <FlexView
-              direction="row"
-              gapSize="small"
-              className="items-baseline">
+            <FlexView gapSize="small">
               <AppText typoStyle="H3" color={colors.white}>
                 {name}
-              </AppText>
-              <AppText typoStyle="B2" color={colors.white}>
-                {category.name}
+                <View className="px-2">
+                  <AppText typoStyle="B2" color={colors.white}>
+                    {category.name}
+                  </AppText>
+                </View>
               </AppText>
             </FlexView>
             <AppText typoStyle="B2" color={colors.white}>
