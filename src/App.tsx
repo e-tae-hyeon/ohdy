@@ -6,6 +6,7 @@ import ToastContainer from 'components/Global/template/ToastContainer';
 import useLoadUser from 'hooks/useLoadUser';
 import RootStack from 'navigations/RootStack';
 import React, {useEffect} from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,14 +28,16 @@ function App() {
 
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <RootStack />
-        </NavigationContainer>
-        <GlobalDialog />
-        <PolicyBottomSheet />
-      </QueryClientProvider>
-      <ToastContainer />
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <NavigationContainer>
+            <RootStack />
+          </NavigationContainer>
+          <GlobalDialog />
+          <PolicyBottomSheet />
+        </QueryClientProvider>
+        <ToastContainer />
+      </SafeAreaProvider>
     </>
   );
 }
