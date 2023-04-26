@@ -5,7 +5,7 @@ import React from 'react';
 
 function SurfingScreen() {
   return (
-    <Layout>
+    <Layout edges={['top']}>
       <SurfingHeader />
       <SurfingPlaceList />
     </Layout>

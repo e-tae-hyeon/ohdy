@@ -1,13 +1,16 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Edge, SafeAreaView} from 'react-native-safe-area-context';
 
 type LayoutProps = {
+  edges?: Edge[];
   children: React.ReactNode;
 };
 
-function Layout({children}: LayoutProps) {
+function Layout({edges, children}: LayoutProps) {
   return (
-    <SafeAreaView className="flex flex-1 bg-white">{children}</SafeAreaView>
+    <SafeAreaView edges={edges} className="flex flex-1 bg-white">
+      {children}
+    </SafeAreaView>
   );
 }
 
