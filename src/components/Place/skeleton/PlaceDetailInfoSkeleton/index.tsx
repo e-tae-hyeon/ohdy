@@ -7,11 +7,11 @@ function PlaceDetailInfoSkeleton() {
     <View className="p-4">
       <SkeletonPlaceholder borderRadius={16}>
         <View style={{gap: 16}}>
+          <View style={{width: 200, height: 20}} />
           <View style={{flexDirection: 'row', gap: 16}}>
-            <View style={{width: 160, height: 20}} />
+            <View style={{width: 60, height: 20}} />
             <View style={{width: 60, height: 20}} />
           </View>
-          <View style={{width: 60, height: 20}} />
           <View style={{width: 240, height: 20}} />
           <View style={{flexDirection: 'row', gap: 16}}>
             <View style={{width: 60, height: 20}} />
