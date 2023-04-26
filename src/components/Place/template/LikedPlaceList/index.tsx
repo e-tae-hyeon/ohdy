@@ -5,6 +5,10 @@ import {getMyLikedPlaces} from 'apis/me';
 import useToast from 'hooks/useToast';
 import {getErrorMessage} from 'utils/error';
 import {useFocusEffect} from '@react-navigation/native';
+import AppText from 'components/@base/AppText';
+import {View} from 'react-native';
+import colors from 'common/styles/colors';
+import EmptyNotice from 'components/Global/module/EmptyNotice';
 
 function LikedPlaceList() {
   const {showToast} = useToast();
@@ -25,6 +29,9 @@ function LikedPlaceList() {
   );
 
   const places = data ?? [];
+
+  if (!isLoading && places.length <= 0)
+    return <EmptyNotice message="아직 좋아하는 장소가 없어요." />;
 
   return (
     <PlaceList
