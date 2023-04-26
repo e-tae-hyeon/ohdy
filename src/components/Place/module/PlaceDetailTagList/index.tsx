@@ -25,7 +25,7 @@ function PlaceDetailTagList({tags, tagStyle}: PlaceDetailTagListProps) {
       renderItem={renderItem}
       horizontal
       keyExtractor={item => item}
-      ItemSeparatorComponent={() => <View className="px-2" />}
+      ItemSeparatorComponent={() => <View className="px-1" />}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{paddingHorizontal: 16}}
     />
