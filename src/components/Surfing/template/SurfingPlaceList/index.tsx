@@ -8,7 +8,7 @@ function SurfingPlaceList() {
   const {places, isLoading, isFetching, refetch, fetchNext} = usePlaces();
 
   useEffect(() => {
-    refetch({refetchPage: (page, idx) => idx === 0});
+    refetch();
   }, [orderMode]);
 
   return (
