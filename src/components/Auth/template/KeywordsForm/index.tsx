@@ -56,15 +56,16 @@ function KeywordsForm() {
   };
 
   return (
-    <View>
+    <View className="flex-1">
       <GuideText
         title={'당신을 설명하는 키워드를 선택해주세요.'}
         description="최소 3개 이상의 키워드를 선택해주세요:)"
         padding="b"
       />
-      <FlexView gapSize="large">
+      <FlexView gapSize="large" className="flex-1">
         <View
           style={{
+            flex: 1,
             flexDirection: 'row',
             flexWrap: 'wrap',
             rowGap: 16,
