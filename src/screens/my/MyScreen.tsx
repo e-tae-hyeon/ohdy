@@ -1,6 +1,8 @@
+import FlexView from 'components/@base/FlexView';
 import Header from 'components/Global/template/Header';
 import Layout from 'components/Global/template/Layout';
 import UserInfo from 'components/User/template/UserInfo';
+import UserPolicies from 'components/User/template/UserPolicies';
 import UserToGoActions from 'components/User/template/UserToGoActions';
 import React from 'react';
 import {View} from 'react-native';
@@ -10,8 +12,11 @@ function MyScreen() {
     <Layout>
       <Header title="My" />
       <View className="p-4">
-        <UserInfo />
-        <UserToGoActions />
+        <FlexView>
+          <UserInfo />
+          <UserToGoActions />
+          <UserPolicies />
+        </FlexView>
       </View>
     </Layout>
   );
