@@ -7,12 +7,14 @@ import {MainTabNavigationProp} from 'navigations/MainTab/types';
 import {PlaceDetailScreenRouteProp} from 'navigations/RootStack/types';
 import React from 'react';
 import {View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {usePlaceOverrideById} from 'stores/usePlaceOverrideStore';
 
 function PlaceDetailFooter() {
   const {
     params: {id},
   } = useRoute<PlaceDetailScreenRouteProp>();
+  const {bottom} = useSafeAreaInsets();
   const {place} = usePlace(id);
   const placeOverride = usePlaceOverrideById(id);
   const {like, unlike} = useLikePlaceManager();
@@ -41,7 +43,9 @@ function PlaceDetailFooter() {
   };
 
   return (
-    <View className="px-8 py-4 border-t border-neutral-200">
+    <View
+      className="px-8 py-4 border-t border-neutral-200"
+      style={{paddingBottom: bottom + 16}}>
       <PlaceDetailLikeBtn onPress={handlePressLike} isLiked={isLiked} />
     </View>
   );
