@@ -11,7 +11,7 @@ function useLogout() {
     try {
       clear();
       clearTokenClient();
-      queryClient.invalidateQueries(['myProfile']);
+      queryClient.removeQueries(['myProfile']);
       await tokenStorage.clear();
     } catch (err) {}
   };
