@@ -64,11 +64,10 @@ function PlaceCarousel() {
         data={places}
         renderItem={renderItem}
         initialScrollIndex={0}
-        itemWidth={width * 0.7}
+        itemWidth={width * 0.75}
         sliderWidth={width}
         onSnapToItem={idx => setCurrentPlace(places[idx])}
         onLayout={() => setCurrentPlace(places[0])}
-        containerCustomStyle={{flex: 1}}
         loop
       />
     </FlexView>

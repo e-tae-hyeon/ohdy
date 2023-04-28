@@ -10,9 +10,9 @@ function PlaceCarouselSkeleton() {
       <SkeletonPlaceholder>
         <View
           style={{
-            width: width * 0.7,
+            width: width * 0.75,
             height: height * 0.55,
-            maxHeight: 460,
+            maxHeight: 400,
             alignSelf: 'center',
           }}
         />
