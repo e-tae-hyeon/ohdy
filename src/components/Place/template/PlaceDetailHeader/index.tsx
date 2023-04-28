@@ -28,9 +28,7 @@ function PlaceDetailHeader() {
             ? 'bg-transparent'
             : 'bg-white border-b border-neutral-200'
         } `}
-        style={{
-          top,
-        }}>
+        style={{paddingTop: top}}>
         <ActionsHeader
           onPressBack={handlePressBack}
           tintColor={isShownImageSwiper ? colors.white : colors.black}
