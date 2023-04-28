@@ -1,18 +1,27 @@
 import React from 'react';
-import AppText, {TypoStyle} from '../AppText';
+import {Text} from 'react-native';
 
 type LogotypoProps = {
   size: 'small' | 'medium' | 'large';
 };
 
 function Logotypo({size = 'medium'}: LogotypoProps) {
-  return <AppText typoStyle={sizeMap[size]}>ohdy</AppText>;
+  return (
+    <Text
+      style={{
+        fontFamily: 'HSGaeulSenggak-2.0',
+        fontSize: sizeMap[size],
+        textAlignVertical: 'center',
+      }}>
+      ohdy
+    </Text>
+  );
 }
 
 export default Logotypo;
 
-const sizeMap: Record<string, TypoStyle> = {
-  small: 'H3',
-  medium: 'H1',
-  large: 'Hero',
+const sizeMap: Record<string, number> = {
+  small: 20,
+  medium: 28,
+  large: 42,
 };
