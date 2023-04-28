@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import AuthScreen from 'screens/auth/AuthScreen';
 import EmailScreen from 'screens/auth/EmailScreen';
 import VerifyCodeScreen from 'screens/auth/VerifyCodeScreen';
@@ -15,10 +15,20 @@ import SearchScreen from 'screens/surfing/SearchScreen';
 import CategoryResultScreen from 'screens/surfing/CategoryResultScreen';
 import SettingsScreen from 'screens/my/SettingsScreen';
 import FeedbackScreen from 'screens/my/FeedbackScreen';
+import useLoadUser from 'hooks/useLoadUser';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootStack() {
+  const loadUser = useLoadUser();
+
+  useEffect(() => {
+    const load = async () => {
+      await loadUser();
+    };
+    load();
+  }, []);
+
   const {user} = useUserStore();
   const profile = useMyProfile();
 

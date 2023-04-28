@@ -17,15 +17,6 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const loadUser = useLoadUser();
-
-  useEffect(() => {
-    const load = async () => {
-      await loadUser();
-    };
-    load();
-  }, []);
-
   return (
     <>
       <SafeAreaProvider>
