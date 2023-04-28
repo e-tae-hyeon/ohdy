@@ -13,7 +13,7 @@ function PlaceOpenFilterBtn({onPress}: PlaceOpenFilterBtnProps) {
     <Pressable
       onPress={onPress}
       hitSlop={8}
-      className="items-center self-center justify-center p-4">
+      className="items-center self-center justify-center p-2">
       <FlexView gapSize="tiny" className="items-center">
         <AppText>filter</AppText>
         <SvgIcon name="chevronDown" />
