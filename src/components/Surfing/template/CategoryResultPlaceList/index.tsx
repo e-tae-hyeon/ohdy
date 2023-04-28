@@ -1,6 +1,7 @@
 import {useRoute} from '@react-navigation/native';
 import {useInfiniteQuery} from '@tanstack/react-query';
 import {searchPlacesByCategory} from 'apis/places';
+import EmptyNotice from 'components/Global/module/EmptyNotice';
 import PlaceList from 'components/Place/template/PlaceList';
 import {CategoryResultScreenRouteProp} from 'navigations/RootStack/types';
 import React from 'react';
@@ -25,6 +26,9 @@ function CategoryResultPlaceList() {
   };
 
   const places = data?.pages.flatMap(page => page.places) ?? [];
+
+  if (!isLoading && places.length <= 0)
+    return <EmptyNotice message="플레이스 준비중입니다." />;
 
   return (
     <PlaceList
