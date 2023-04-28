@@ -19,6 +19,7 @@ function SearchHeader() {
   const handleChange = (by: string) => setKeyword(by);
 
   const handleSubmit = () => {
+    if (!keyword) return;
     fetchSearch();
     clearIsFocusedSearchbar();
   };
