@@ -46,7 +46,7 @@ export const subCategories: Record<ParentCategory, ReadonlyArray<string>> = {
   아트: ['전시회', '체험 전시'] as const,
   공연: ['뮤지컬', '연극', '음악공연장'] as const,
   스튜디오: ['셀프 스튜디오', '사진관'] as const,
-  '팝업∙플래그십 스토어': ['하이엔드', '더현대서울'] as const,
+  '팝업∙플래그십 스토어': ['하이엔드', '더현대서울', '브랜드스토어'] as const,
 };
 
 export type SubCategory = {
