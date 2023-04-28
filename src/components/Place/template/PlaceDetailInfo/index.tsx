@@ -42,7 +42,10 @@ function PlaceDetailInfo() {
       </FlexView>
       <PlaceDetailTagList tags={keywords.map(keyword => keyword.name)} />
       <FlexView className="px-4">
-        <Tag label={`대표메뉴 ${price.toLocaleString()}원`} bgColor="#F1C5C5" />
+        <Tag
+          label={price > 0 ? `대표메뉴 ${price.toLocaleString()}원` : '무료'}
+          bgColor="#F1C5C5"
+        />
         <Tag
           label={
             maxHeadCount < 50 ? `최대 인원 ${maxHeadCount}명` : `인원 제한 없음`
