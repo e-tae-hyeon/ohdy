@@ -37,7 +37,7 @@ function Dialog({
       <View className="absolute inset-0 items-center justify-center">
         <Animated.View
           entering={FadeInDown}
-          className="p-8 bg-white rounded-lg w-[85vw]">
+          className="p-8 bg-white rounded-2xl w-[85vw]">
           <FlexView>
             <AppText typoStyle="H3">{title}</AppText>
             <AppText typoStyle="B2">{description}</AppText>
