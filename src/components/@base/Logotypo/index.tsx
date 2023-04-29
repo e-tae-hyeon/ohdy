@@ -1,3 +1,4 @@
+import colors from 'common/styles/colors';
 import React from 'react';
 import {Text} from 'react-native';
 
@@ -12,6 +13,7 @@ function Logotypo({size = 'medium'}: LogotypoProps) {
         fontFamily: 'HSGaeulSenggak-2.0',
         fontSize: sizeMap[size],
         textAlignVertical: 'center',
+        color: colors.black,
       }}>
       ohdy
     </Text>
