@@ -17,15 +17,18 @@ import SettingsScreen from 'screens/my/SettingsScreen';
 import FeedbackScreen from 'screens/my/FeedbackScreen';
 import useLoadUser from 'hooks/useLoadUser';
 import OnboardingScreen from 'screens/auth/OnboardingScreen';
+import useFirstLaunch from 'hooks/useFirstLaunch';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootStack() {
   const loadUser = useLoadUser();
+  const launch = useFirstLaunch();
 
   useEffect(() => {
     const load = async () => {
       await loadUser();
+      await launch();
     };
     load();
   }, []);
