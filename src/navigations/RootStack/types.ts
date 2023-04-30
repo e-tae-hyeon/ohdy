@@ -10,6 +10,7 @@ export type RootStackParamList = {
   SettingsGroupParamList;
 
 export type AuthGroupParamList = {
+  Onboarding: undefined;
   Auth: undefined;
   Email: undefined;
   VerifyCode: undefined;

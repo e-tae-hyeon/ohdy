@@ -16,6 +16,7 @@ import CategoryResultScreen from 'screens/surfing/CategoryResultScreen';
 import SettingsScreen from 'screens/my/SettingsScreen';
 import FeedbackScreen from 'screens/my/FeedbackScreen';
 import useLoadUser from 'hooks/useLoadUser';
+import OnboardingScreen from 'screens/auth/OnboardingScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -36,6 +37,7 @@ function RootStack() {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {!user ? (
         <Stack.Group>
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Auth" component={AuthScreen} />
           <Stack.Screen name="Email" component={EmailScreen} />
           <Stack.Screen name="VerifyCode" component={VerifyCodeScreen} />
