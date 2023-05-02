@@ -23,3 +23,4 @@ export {default as search} from 'assets/icons/search.svg';
 export {default as show} from 'assets/icons/show.svg';
 export {default as store} from 'assets/icons/store.svg';
 export {default as user} from 'assets/icons/user.svg';
+export {default as xClose} from 'assets/icons/x-close.svg';
