@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import colors from 'common/styles/colors';
 import Btn from 'components/@base/Btn';
 import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   ListRenderItem,
   StatusBar,
@@ -11,17 +11,23 @@ import {
 } from 'react-native';
 import AutoHeightImage from 'react-native-auto-height-image';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
+import useLaunchedStore from 'stores/useLaunchedStore';
 
 function Onboarding() {
+  const {isFirstLaunched} = useLaunchedStore();
   const {replace} = useNavigation<AuthGroupNavigationProp>();
   const {width} = useWindowDimensions();
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (!isFirstLaunched) replace('Auth');
+  }, [isFirstLaunched]);
 
   const onboardingImages = [
     require('assets/images/onboarding-1.png'),
     require('assets/images/onboarding-2.png'),
     require('assets/images/onboarding-3.png'),
   ];
-  const [currentIdx, setCurrentIdx] = useState(0);
 
   const renderItem: ListRenderItem<any> = useCallback(
     ({item}) => <AutoHeightImage width={width} source={item} />,
