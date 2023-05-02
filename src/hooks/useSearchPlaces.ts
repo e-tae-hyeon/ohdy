@@ -13,14 +13,12 @@ function useSearchPlaces(keyword: string) {
         enabled: false,
         getNextPageParam: last =>
           last.pageInfo.hasNextPage ? last.pageInfo.endCursor : null,
-        onSuccess: () => {
-          setIsSearched(true);
-        },
       },
     );
 
   const fetchSearch = () => {
     refetch();
+    setIsSearched(true);
   };
 
   const fetchNext = () => {
