@@ -4,6 +4,8 @@ import {
   LoginUserData,
   Profile,
   RegisterParams,
+  SocialAuthResult,
+  UserKakao,
   VerifyCodeParams,
   VerifyCodeResult,
 } from './types';
@@ -40,6 +42,14 @@ export async function createProfile(params: CreateProfileParams) {
 
 export async function unregister() {
   const res = await client.delete('/auth/unregister');
+
+  return res.data;
+}
+
+export async function authByKakao(accessToken: string) {
+  const res = await client.post<SocialAuthResult>('/auth/kakao', {
+    accessToken,
+  });
 
   return res.data;
 }

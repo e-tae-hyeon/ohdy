@@ -13,8 +13,6 @@ function HowToUse() {
   const {isVisibleHowToUse, setIsVisibleHowToUse} = useLaunchedStore();
   const {top, bottom} = useSafeAreaInsets();
 
-  console.log(isVisibleHowToUse);
-
   if (!isVisibleHowToUse) return null;
 
   const handlePressClose = () => {

@@ -23,7 +23,19 @@ export type SocialRegisterParams = {
   provider: SocialProvider;
 };
 
-export type SocialProvider = 'Apple' | 'Kakao';
+export type SocialAuthResult = SocialLoginResult | SocialRegisterResult;
+
+export type SocialLoginResult = {
+  type: 'login';
+  data: LoginUserData;
+};
+
+export type SocialRegisterResult = {
+  type: 'register';
+  data: UserKakao;
+};
+
+export type SocialProvider = 'apple' | 'kakao';
 
 export type User = {
   id: number;
@@ -158,4 +170,15 @@ export type SearchPlacesByCategoryParams = {
 export type SearchPlacesParams = {
   keyword: string;
   cursor?: number;
+};
+
+export type UserKakao = {
+  id: number;
+  kakao_account: {
+    brithday?: string;
+    gender?: string;
+    profile?: {
+      nickname?: string;
+    };
+  };
 };

@@ -14,8 +14,13 @@ import useAuthStore from 'stores/useAuthStore';
 import {getErrorMessage} from 'utils/error';
 
 function PolicyBottomSheet() {
-  const {registerType, email, isVisiblePolicySheet, closePolicySheet} =
-    useAuthStore();
+  const {
+    registerType,
+    email,
+    socialRegisterData,
+    isVisiblePolicySheet,
+    closePolicySheet,
+  } = useAuthStore();
   const {showToast} = useToast();
   const login = useLogin();
 
@@ -28,7 +33,10 @@ function PolicyBottomSheet() {
       await login(data);
       closePolicySheet();
     },
-    onError: err => showToast({type: 'error', message: getErrorMessage(err)}),
+    onError: err => {
+      closePolicySheet();
+      showToast({type: 'error', message: getErrorMessage(err)});
+    },
   });
 
   const handlePress = () => {
@@ -38,6 +46,12 @@ function PolicyBottomSheet() {
         break;
       }
       case 'social': {
+        if (!socialRegisterData) return;
+        mutate({
+          type: 'social',
+          provider: socialRegisterData.provider,
+          socialId: socialRegisterData.socialId,
+        });
       }
       default:
         break;
