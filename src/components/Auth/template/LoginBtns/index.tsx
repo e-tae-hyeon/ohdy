@@ -26,25 +26,27 @@ function LoginBtns() {
   };
 
   const handlePressKakao = async () => {
-    const auth = await loginByKakao();
-    const authResult = await authByKakao(auth.accessToken);
+    try {
+      const auth = await loginByKakao();
+      const authResult = await authByKakao(auth.accessToken);
 
-    switch (authResult.type) {
-      case 'login': {
-        await login(authResult.data);
-        break;
+      switch (authResult.type) {
+        case 'login': {
+          await login(authResult.data);
+          break;
+        }
+        case 'register': {
+          setRegisterType('social');
+          setSocialRegisterData({
+            provider: 'kakao',
+            socialId: authResult.data.id.toString(),
+          });
+          setSocialUserData(authResult.data);
+          openPolicySheet();
+          break;
+        }
       }
-      case 'register': {
-        setRegisterType('social');
-        setSocialRegisterData({
-          provider: 'kakao',
-          socialId: authResult.data.id.toString(),
-        });
-        setSocialUserData(authResult.data);
-        openPolicySheet();
-        break;
-      }
-    }
+    } catch (err) {}
   };
 
   return (
