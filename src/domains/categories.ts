@@ -19,9 +19,7 @@ export const subCategories: Record<ParentCategory, ReadonlyArray<string>> = {
     '중식',
     '아시안',
     '분식',
-    '패스트푸드',
     '브런치',
-    '뷔페',
     '오마카세',
     '파인다이닝',
   ] as const,
@@ -32,7 +30,6 @@ export const subCategories: Record<ParentCategory, ReadonlyArray<string>> = {
     '북카페',
     '재즈카페',
     '한옥카페',
-    '아쿠아리움카페',
   ] as const,
   주점: ['와인∙칵테일바', '일반 주점', '이자카야'] as const,
   원데이클래스: [
@@ -41,12 +38,12 @@ export const subCategories: Record<ParentCategory, ReadonlyArray<string>> = {
     '가죽공방',
     '퍼스널컬러',
     '꽃꽂이',
-    '기타',
+    '기타 원데이클래스',
   ] as const,
   아트: ['전시회', '체험 전시'] as const,
-  공연: ['뮤지컬', '연극', '음악공연장'] as const,
+  공연: ['음악공연장'] as const,
   스튜디오: ['셀프 스튜디오', '사진관'] as const,
-  '팝업∙플래그십 스토어': ['하이엔드', '더현대서울', '브랜드스토어'] as const,
+  '팝업∙플래그십 스토어': ['브랜드스토어'] as const,
 };
 
 export type SubCategory = {
