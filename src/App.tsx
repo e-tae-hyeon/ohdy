@@ -8,6 +8,7 @@ import RootStack from 'navigations/RootStack';
 import React, {useEffect} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SplashScreen from 'react-native-splash-screen';
+import firstLauchedStorage from 'storages/firstLauchedStorage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,6 +20,7 @@ const queryClient = new QueryClient({
 
 function App() {
   useEffect(() => {
+    firstLauchedStorage.clear();
     setTimeout(() => {
       SplashScreen.hide();
     }, 1000);
