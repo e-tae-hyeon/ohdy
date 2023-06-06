@@ -1,13 +1,14 @@
+import appleAuth from '@invertase/react-native-apple-authentication';
 import {login as loginByKakao} from '@react-native-seoul/kakao-login';
 import {useNavigation} from '@react-navigation/native';
-import {authByKakao} from 'apis/auth';
-import {SocialProvider} from 'apis/types';
+import {authByApple, authByKakao} from 'apis/auth';
+import {SocialProvider, UserKakao} from 'apis/types';
 import FlexView from 'components/@base/FlexView';
 import LoginBtn, {LoginBtnIcon} from 'components/Auth/module/LoginBtn';
 import useLogin from 'hooks/useLogin';
 import {AuthGroupNavigationProp} from 'navigations/RootStack/types';
 import React from 'react';
-import {View} from 'react-native';
+import {Platform, View} from 'react-native';
 import useAuthStore from 'stores/useAuthStore';
 
 function LoginBtns() {
@@ -39,7 +40,7 @@ function LoginBtns() {
           setRegisterType('social');
           setSocialRegisterData({
             provider: 'kakao',
-            socialId: authResult.data.id.toString(),
+            socialId: (authResult.data as UserKakao).id.toString(),
           });
           setSocialUserData(authResult.data);
           openPolicySheet();
@@ -49,10 +50,48 @@ function LoginBtns() {
     } catch (err) {}
   };
 
+  const handlePressApple = async () => {
+    try {
+      const {user} = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        // Note: it appears putting FULL_NAME first is important, see issue #293
+        requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
+      });
+
+      // get current authentication state for user
+      // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
+      const credentialState = await appleAuth.getCredentialStateForUser(user);
+
+      // use credentialState response to ensure the user is authenticated
+      if (credentialState === appleAuth.State.AUTHORIZED) {
+        const authResult = await authByApple(user);
+
+        switch (authResult.type) {
+          case 'login': {
+            await login(authResult.data);
+            break;
+          }
+          case 'register': {
+            setRegisterType('social');
+            setSocialRegisterData({
+              provider: 'apple',
+              socialId: user,
+            });
+            setSocialUserData({user});
+            openPolicySheet();
+            break;
+          }
+        }
+      }
+    } catch (err) {}
+  };
+
   return (
     <View className="p-12">
       <FlexView>
-        <LoginBtn {...loginsMap.apple} />
+        {Platform.OS === 'ios' && (
+          <LoginBtn {...loginsMap.apple} onPress={handlePressApple} />
+        )}
         <LoginBtn {...loginsMap.kakao} onPress={handlePressKakao} />
         <LoginBtn {...loginsMap.email} onPress={handlePressEmail} />
       </FlexView>

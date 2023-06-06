@@ -46,6 +46,12 @@ export async function unregister() {
   return res.data;
 }
 
+export async function authByApple(user: string) {
+  const res = await client.post<SocialAuthResult>('/auth/apple', {user});
+
+  return res.data;
+}
+
 export async function authByKakao(accessToken: string) {
   const res = await client.post<SocialAuthResult>('/auth/kakao', {
     accessToken,

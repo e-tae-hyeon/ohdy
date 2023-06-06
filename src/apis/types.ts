@@ -32,7 +32,7 @@ export type SocialLoginResult = {
 
 export type SocialRegisterResult = {
   type: 'register';
-  data: UserKakao;
+  data: UserKakao | UserApple;
 };
 
 export type SocialProvider = 'apple' | 'kakao';
@@ -181,4 +181,8 @@ export type UserKakao = {
       nickname?: string;
     };
   };
+};
+
+export type UserApple = {
+  user: string;
 };

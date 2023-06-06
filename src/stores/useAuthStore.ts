@@ -1,11 +1,11 @@
-import {SocialProvider, UserKakao} from 'apis/types';
+import {SocialProvider, UserApple, UserKakao} from 'apis/types';
 import {create} from 'zustand';
 
 type State = {
   registerType: RegisterType | undefined;
   email: string;
   socialRegisterData: {provider: SocialProvider; socialId: string} | undefined;
-  socialUserData: UserKakao | undefined;
+  socialUserData: UserKakao | UserApple | undefined;
   isVisiblePolicySheet: boolean;
 };
 
@@ -18,7 +18,7 @@ type Actions = {
     provider: SocialProvider;
     socialId: string;
   }) => void;
-  setSocialUserData: (by: UserKakao) => void;
+  setSocialUserData: (by: UserKakao | UserApple) => void;
 
   openPolicySheet: () => void;
   closePolicySheet: () => void;
