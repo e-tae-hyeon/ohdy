@@ -25,7 +25,7 @@ function ToastMessage({type, message, onPress}: ToastMessageProps) {
             {message}
           </AppText>
         </FlexView>
-        {onPress && (
+        {onPress?.name !== 'noop' && (
           <FlexView direction="row" gapSize="tiny">
             <AppText typoStyle="B2" color={colors.gray[400]}>
               보러가기
