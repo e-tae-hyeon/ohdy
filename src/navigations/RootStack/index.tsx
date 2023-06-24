@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import AuthScreen from 'screens/auth/AuthScreen';
 import EmailScreen from 'screens/auth/EmailScreen';
 import VerifyCodeScreen from 'screens/auth/VerifyCodeScreen';
@@ -18,17 +18,20 @@ import FeedbackScreen from 'screens/my/FeedbackScreen';
 import useLoadUser from 'hooks/useLoadUser';
 import OnboardingScreen from 'screens/auth/OnboardingScreen';
 import useFirstLaunch from 'hooks/useFirstLaunch';
+import LoadingScreen from 'screens/loading/LoadingScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootStack() {
   const loadUser = useLoadUser();
   const launch = useFirstLaunch();
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
-      await loadUser();
       await launch();
+      await loadUser();
+      setLoading(false);
     };
     load();
   }, []);
@@ -38,6 +41,13 @@ function RootStack() {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
+      {isLoading && (
+        <Stack.Screen
+          name="Loading"
+          component={LoadingScreen}
+          options={{animation: 'fade'}}
+        />
+      )}
       {!user ? (
         <Stack.Group>
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
