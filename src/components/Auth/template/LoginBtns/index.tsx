@@ -54,8 +54,6 @@ function LoginBtns() {
     try {
       const {user} = await appleAuth.performRequest({
         requestedOperation: appleAuth.Operation.LOGIN,
-        // Note: it appears putting FULL_NAME first is important, see issue #293
-        requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
       });
 
       // get current authentication state for user
