@@ -40,8 +40,8 @@ function NicknameForm() {
     <KeyboardAvoidingContainer>
       <View className="flex-1 p-4">
         <GuideText
-          title={'이름'}
-          description="다른 회원들에게 보여질 이름이에요."
+          title={'닉네임'}
+          description="다른 회원들에게 보여질 닉네임이에요."
         />
         <FlexView gapSize="large" className="flex-1">
           <Input
