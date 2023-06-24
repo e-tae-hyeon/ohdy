@@ -5,7 +5,6 @@ import {
   Profile,
   RegisterParams,
   SocialAuthResult,
-  UserKakao,
   VerifyCodeParams,
   VerifyCodeResult,
 } from './types';
