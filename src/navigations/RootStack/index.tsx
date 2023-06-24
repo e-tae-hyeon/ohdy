@@ -31,7 +31,9 @@ function RootStack() {
     const load = async () => {
       await launch();
       await loadUser();
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     };
     load();
   }, []);
