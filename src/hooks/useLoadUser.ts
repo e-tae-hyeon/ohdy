@@ -10,13 +10,17 @@ function useLoadUser() {
 
   return async () => {
     try {
+      // get and set auth tokens
       const tokens = await tokenStorage.get();
       if (!tokens) return;
-
       applyTokenClient(tokens.accessToken);
+
+      // get and set user data
       const user = await checkMe();
       setUser(user);
-      queryClient.invalidateQueries(['myProfile']);
+
+      // get profile
+      queryClient.refetchQueries(['myProfile']);
     } catch (err) {
       console.error(err);
     }

@@ -1,5 +1,5 @@
+import Spacer from 'components/@base/Spacer';
 import NicknameForm from 'components/Auth/template/NicknameForm';
-import ActionsHeader from 'components/Global/template/ActionsHeader';
 import Layout from 'components/Global/template/Layout';
 import React from 'react';
 import {View} from 'react-native';
@@ -7,7 +7,7 @@ import {View} from 'react-native';
 function NicknameScreen() {
   return (
     <Layout>
-      <ActionsHeader />
+      <Spacer size="large" />
       <View className="flex-1 p-4">
         <NicknameForm />
       </View>

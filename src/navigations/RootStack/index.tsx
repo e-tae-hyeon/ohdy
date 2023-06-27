@@ -5,7 +5,6 @@ import EmailScreen from 'screens/auth/EmailScreen';
 import VerifyCodeScreen from 'screens/auth/VerifyCodeScreen';
 import KeywordsScreen from 'screens/create-profile/KeywordsScreen';
 import NicknameScreen from 'screens/create-profile/NicknameScreen';
-import UserInfoScreen from 'screens/create-profile/UserInfoScreen';
 import useUserStore from 'stores/useUserStore';
 import {RootStackParamList} from './types';
 import useMyProfile from 'hooks/useMyProfile';
@@ -28,14 +27,13 @@ function RootStack() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const load = async () => {
+    (async () => {
       await launch();
       await loadUser();
       setTimeout(() => {
         setLoading(false);
       }, 1000);
-    };
-    load();
+    })();
   }, []);
 
   const {user} = useUserStore();
@@ -61,7 +59,6 @@ function RootStack() {
         <>
           {!profile && (
             <Stack.Group>
-              <Stack.Screen name="UserInfo" component={UserInfoScreen} />
               <Stack.Screen name="Nickname" component={NicknameScreen} />
               <Stack.Screen name="Keywords" component={KeywordsScreen} />
             </Stack.Group>
