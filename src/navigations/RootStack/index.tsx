@@ -28,14 +28,13 @@ function RootStack() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const load = async () => {
+    (async () => {
       await launch();
       await loadUser();
       setTimeout(() => {
         setLoading(false);
       }, 1000);
-    };
-    load();
+    })();
   }, []);
 
   const {user} = useUserStore();
