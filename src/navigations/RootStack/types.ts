@@ -18,7 +18,6 @@ export type AuthGroupParamList = {
 };
 
 export type CreateProfileGroupParamList = {
-  UserInfo: undefined;
   Nickname: undefined;
   Keywords: undefined;
 };
