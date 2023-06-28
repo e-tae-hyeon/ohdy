@@ -11,12 +11,11 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import useCreateProfileStore from 'stores/useCreateProfileStore';
 import {getErrorMessage} from 'utils/error';
-import {getFormatDate} from 'utils/format';
 
 function KeywordsForm() {
   const queryClient = useQueryClient();
   const {showToast} = useToast();
-  const {brithDate, gender, nickname, keywords, addKeyword, removeKeyword} =
+  const {nickname, keywords, addKeyword, removeKeyword} =
     useCreateProfileStore();
   const [checkedLabels, setCheckedLabels] = useState<string[]>([]);
   const disabled = useDisabled([checkedLabels.length < 3]);
@@ -46,10 +45,7 @@ function KeywordsForm() {
   });
 
   const handlePressSubmit = async () => {
-    if (!brithDate || !gender || !nickname) return;
     mutate({
-      brithDate: getFormatDate(brithDate),
-      gender,
       keywords,
       nickname,
     });
