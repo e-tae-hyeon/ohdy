@@ -514,7 +514,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ohdy.place;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ohdy.place.dev;
 				PRODUCT_NAME = ohdy;
 				SWIFT_OBJC_BRIDGING_HEADER = "ohdy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

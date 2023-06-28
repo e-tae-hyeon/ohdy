@@ -1,12 +1,12 @@
 {
   "name": "ohdy",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:4000 tcp:4000",
     "android:prod": "ENVFILE=.env.production react-native run-android  && adb reverse tcp:9090 tcp:9090",
     "android:build": "cd android && ENVFILE=.env.production ./gradlew bundleRelease",
-    "ios": "react-native run-ios",
+    "ios": "ENVFILE=.env react-native run-ios",
     "ios:prod": "react-native run-ios --scheme ohdy.production",
     "lint": "eslint .",
     "start": "react-native start",
