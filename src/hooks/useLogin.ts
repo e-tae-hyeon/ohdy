@@ -4,17 +4,17 @@ import tokenStorage from 'storages/tokenStorage';
 import useUserStore from 'stores/useUserStore';
 import {getErrorMessage} from 'utils/error';
 import useToast from './useToast';
-import {useQueryClient} from '@tanstack/react-query';
+import useMyProfile from './useMyProfile';
 
 function useLogin() {
-  const queryClient = useQueryClient();
+  const {refetch: refetchProfile} = useMyProfile();
   const {setUser} = useUserStore();
   const {showToast} = useToast();
 
   return async ({user, tokens}: LoginUserData) => {
     try {
       applyTokenClient(tokens.accessToken);
-      await queryClient.refetchQueries(['myProfile']);
+      await refetchProfile();
       setUser(user);
       await tokenStorage.set(tokens);
     } catch (err) {

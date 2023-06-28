@@ -3,10 +3,11 @@ import {applyTokenClient} from 'apis/@client';
 import {checkMe} from 'apis/me';
 import tokenStorage from 'storages/tokenStorage';
 import useUserStore from 'stores/useUserStore';
+import useMyProfile from './useMyProfile';
 
 function useLoadUser() {
   const {setUser} = useUserStore();
-  const queryClient = useQueryClient();
+  const {refetch: refetchProfile} = useMyProfile();
 
   return async () => {
     try {
@@ -20,7 +21,7 @@ function useLoadUser() {
       setUser(user);
 
       // get profile
-      queryClient.refetchQueries(['myProfile']);
+      await refetchProfile();
     } catch (err) {
       console.error(err);
     }

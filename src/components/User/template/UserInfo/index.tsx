@@ -4,11 +4,11 @@ import React from 'react';
 import {View} from 'react-native';
 
 function UserInfo() {
-  const myProfile = useMyProfile();
+  const {profile} = useMyProfile();
 
   return (
     <View className="px-8 py-12">
-      <AppText typoStyle="H3">{myProfile?.nickname}님</AppText>
+      <AppText typoStyle="H3">{profile?.nickname}님</AppText>
     </View>
   );
 }

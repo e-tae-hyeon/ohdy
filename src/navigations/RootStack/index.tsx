@@ -37,7 +37,7 @@ function RootStack() {
   }, []);
 
   const {user} = useUserStore();
-  const profile = useMyProfile();
+  const {profile} = useMyProfile();
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
